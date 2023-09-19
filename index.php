@@ -9,8 +9,18 @@
 </head>
 <body>
     <section class="panel">
-        <div class="flex1">a</div>
-        <div class="flex2">b</div>
+        <div class="row1">
+            <section class="team1-section">
+                <span>HOME</span>
+                <span>87
+                    <button>+3</button>
+                    <button>+2</button>
+                    <button>+1</button>
+                </span>
+                <span>BONUS</span>
+            </section>
+        </div>
+        <div class="row2">b</div>
     </section>
 </body>
 </html>
