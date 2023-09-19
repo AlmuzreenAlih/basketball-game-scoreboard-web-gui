@@ -8,14 +8,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section>
-        <div class="card">
-
-        </div>
-    </section>
-    <section>
-        <div class="card"></div>
-        <div class="card"></div>
+    <section class="panel">
+        <div class="flex1">a</div>
+        <div class="flex2">b</div>
     </section>
 </body>
 </html>
