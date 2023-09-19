@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+
+    font-family: 'Digital-7 Mono', sans-serif;
+    /* font-family: 'Digital-7', sans-serif; */
+    /* font-family: 'Digital-7 Italic', sans-serif; */
+}
+
