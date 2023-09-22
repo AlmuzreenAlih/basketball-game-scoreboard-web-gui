@@ -22,6 +22,19 @@
                 </span>
                 <span id="team1-bonus">BONUS</span>
             </section>
+            <section></section>
+            <section id="team2-section">
+                <span id="team2-name">VISITOR</span>
+                <span id="team2-score">87
+                    <button id="team2-button1">+3</button>
+                    <button id="team2-button2">+2</button>
+                    <button id="team2-button3">+1</button>
+                    <button id="team2-button4">-3</button>
+                    <button id="team2-button5">-2</button>
+                    <button id="team2-button6">-1</button>
+                </span>
+                <span id="team2-bonus">BONUS</span>
+            </section>
         </div>
         <div class="row2">b</div>
     </section>

@@ -20,6 +20,7 @@ $whole-page: 300px;
 $outline-size: 15px;
 
 $theme_color1: #071952;
+$theme_color2: #111111;
 
 $outline_color1: white;
 $outline_color2: #C70039;
@@ -70,13 +71,14 @@ body {
                 #team1-name {
                     font-family: sans-serif;
                     font-weight: 600;
+                    font-style: italic;
                     letter-spacing: 10px;
                     font-size: $font-large;
                     font-size: 3rem;
                   }
                 #team1-score {
                     color: $outline_color2;
-                    background-color: black;
+                    background-color: $theme_color2;
                     border: 3px solid $outline_color2;
                     border-radius: 10px;
                     width: 100%;
@@ -131,6 +133,86 @@ body {
                     font-size: $font-normal;
                     font-size: 1.8rem;
                     text-align: end;
+
+                  }
+            }
+
+            #team2-section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0px 20px;
+
+                * {
+                    margin-bottom: 10px;
+                }
+
+                #team2-name {
+                    font-family: sans-serif;
+                    font-weight: 600;
+                    font-style: italic;
+                    letter-spacing: 10px;
+                    font-size: $font-large;
+                    font-size: 3rem;
+                  }
+                #team2-score {
+                    color: $outline_color2;
+                    background-color: $theme_color2;
+                    border: 3px solid $outline_color2;
+                    border-radius: 10px;
+                    width: 100%;
+                    font-size: $font2-large;
+                    text-align: center;
+                    position: relative;
+
+                    button {
+                        color: $outline_color2;
+                        background-color: white;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+
+                        border: 4;
+                        border-color: black;
+                        border-radius: 50%;
+                    }
+
+                    #team2-button1 {
+                        position: absolute; top: 10px; right: 10px;
+                        padding:3px;
+                    }
+                    #team2-button2 {
+                        position: absolute; top: 50%; right: 10px;
+                        transform: translateY(-50%);
+                        padding:3px;
+                    }
+                    #team2-button3 {
+                        position: absolute; bottom: 10px; right: 10px;
+                        transform: translateY(50%);
+                        padding:3px;
+                    }
+                    #team2-button4 {
+                        position: absolute; top: 10px; left: 10px;
+                        padding:3px;
+                    }
+                    #team2-button5 {
+                        position: absolute; top: 50%; left: 10px;
+                        transform: translateY(-50%);
+                        padding:3px;
+                    }
+                    #team2-button6 {
+                        position: absolute; bottom: 10px; left: 10px;
+                        transform: translateY(50%);
+                        padding:3px;
+                    }
+                  }
+                #team2-bonus {
+                    // background-color: #78C1F3;
+                    width: 100%;
+                    font-family: sans-serif;
+                    font-size: $font-normal;
+                    font-size: 1.8rem;
+                    text-align: start;
 
                   }
             }
