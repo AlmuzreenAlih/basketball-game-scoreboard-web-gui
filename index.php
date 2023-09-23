@@ -12,7 +12,7 @@
         <div id="row1">
             <section id="team1-section">
                 <span id="team1-name">HOME</span>
-                <span id="team1-score">87
+                <span id="team1-score-box">87
                     <button id="team1-button1">+3</button>
                     <button id="team1-button2">+2</button>
                     <button id="team1-button3">+1</button>
@@ -22,10 +22,17 @@
                 </span>
                 <span id="team1-bonus">BONUS</span>
             </section>
-            <section></section>
+            <section id="center-section-row1">
+                <span id="period-span">PERIOD
+                    <span id="period-box">1</span>
+                </span>
+                <span id="quarter-time-box">12:00</span>
+
+                <span>haha</span>
+            </section>
             <section id="team2-section">
-                <span id="team2-name">VISITOR</span>
-                <span id="team2-score">87
+                <span id="team2-name">Visitor</span>
+                <span id="team2-score-box">87
                     <button id="team2-button1">+3</button>
                     <button id="team2-button2">+2</button>
                     <button id="team2-button3">+1</button>

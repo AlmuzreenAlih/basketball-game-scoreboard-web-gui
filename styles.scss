@@ -59,28 +59,30 @@ body {
 
             #team1-section {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                flex-direction: column;
                 padding: 0px 20px;
+                overflow-x: hidden;
 
-                * {
+                #team1-name, #team1-score-box, #team1-bonus {
                     margin-bottom: 10px;
                 }
 
                 #team1-name {
                     font-family: sans-serif;
-                    font-weight: 600;
                     font-style: italic;
-                    letter-spacing: 10px;
+                    font-weight: 600;
                     font-size: $font-large;
-                    font-size: 3rem;
+                    letter-spacing: 10px;
                   }
-                #team1-score {
-                    color: $outline_color2;
+                #team1-score-box {
                     background-color: $theme_color2;
+                    color: $outline_color2;
+
                     border: 3px solid $outline_color2;
                     border-radius: 10px;
+
                     width: 100%;
                     font-size: $font2-large;
                     text-align: center;
@@ -92,8 +94,7 @@ body {
                         font-size: 0.8rem;
                         font-weight: 600;
 
-                        border: 4;
-                        border-color: black;
+                        border: 4 solid black;
                         border-radius: 50%;
                     }
 
@@ -108,7 +109,7 @@ body {
                     }
                     #team1-button3 {
                         position: absolute; bottom: 10px; right: 10px;
-                        transform: translateY(50%);
+                        // transform: translateY(50%);
                         padding:3px;
                     }
                     #team1-button4 {
@@ -122,7 +123,6 @@ body {
                     }
                     #team1-button6 {
                         position: absolute; bottom: 10px; left: 10px;
-                        transform: translateY(50%);
                         padding:3px;
                     }
                   }
@@ -139,24 +139,24 @@ body {
 
             #team2-section {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                flex-direction: column;
                 padding: 0px 20px;
+                overflow-x: hidden;
 
-                * {
+                #team2-name, #team2-score-box, #team2-bonus {
                     margin-bottom: 10px;
                 }
 
                 #team2-name {
                     font-family: sans-serif;
-                    font-weight: 600;
                     font-style: italic;
-                    letter-spacing: 10px;
+                    font-weight: 600;
                     font-size: $font-large;
-                    font-size: 3rem;
+                    letter-spacing: 10px;
                   }
-                #team2-score {
+                #team2-score-box {
                     color: $outline_color2;
                     background-color: $theme_color2;
                     border: 3px solid $outline_color2;
@@ -172,8 +172,7 @@ body {
                         font-size: 0.8rem;
                         font-weight: 600;
 
-                        border: 4;
-                        border-color: black;
+                        border: 4 solid black;
                         border-radius: 50%;
                     }
 
@@ -188,7 +187,6 @@ body {
                     }
                     #team2-button3 {
                         position: absolute; bottom: 10px; right: 10px;
-                        transform: translateY(50%);
                         padding:3px;
                     }
                     #team2-button4 {
@@ -202,7 +200,6 @@ body {
                     }
                     #team2-button6 {
                         position: absolute; bottom: 10px; left: 10px;
-                        transform: translateY(50%);
                         padding:3px;
                     }
                   }
@@ -216,7 +213,40 @@ body {
 
                   }
             }
-        }
+
+            #center-section-row1 {
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                #period-span {
+                    border: 0;
+                }
+
+                #period-span {
+                    display: flex;
+                    font-family: sans-serif;
+                    font-style: italic;
+                    font-weight: 600;
+                    font-size: $font-normal;
+                    letter-spacing: 10px;
+
+                    #period-box {
+                        font-style: normal;
+                        background-color: $theme_color2;
+                        color: $outline_color2;
+
+                        border: 3px solid $outline_color2;
+                        border-radius: 10px;
+
+                        text-align: center;
+                        width: 50px;
+                    }
+                }
+            }
+        }  
 
         .row2 {
             background-color: $theme_color1;
