@@ -219,10 +219,11 @@ body {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: start;
 
-                #period-span {
+                #period-span, #quarter-time-box  {
                     border: 0;
+                    margin-top: 10px;
                 }
 
                 #period-span {
@@ -234,6 +235,7 @@ body {
                     letter-spacing: 10px;
 
                     #period-box {
+                        font-size: $font-normal;
                         font-style: normal;
                         background-color: $theme_color2;
                         color: $outline_color2;
@@ -244,6 +246,40 @@ body {
                         text-align: center;
                         width: 50px;
                     }
+                }
+
+                #quarter-time-box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-family: 'Digital-7 Mono';
+                    font-style: normal;
+                    font-size: $font2-large;
+                    letter-spacing: 20px;
+
+                    background-color: $theme_color2;
+                    color: yellow;
+
+                    border: 3px solid $outline_color2;
+                    border-radius: 10px;
+
+                    width: 400px;
+                    height: 100px;
+                }
+
+                #position-span {
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-size: $font-large;
+                    
+                    div {
+                        color: $outline_color2;
+                    }
+
                 }
             }
         }  
