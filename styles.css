@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to left, #78C1F3, #9BE8D8);
+  background: black;
   height: 100vh;
   color: white;
   padding: 30px;
@@ -32,7 +32,7 @@ body .panel {
   height: 100%;
 }
 body .panel #row1 {
-  background-color: #071952;
+  background: linear-gradient(to left, #071952, #651919);
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -253,7 +253,34 @@ body .panel #row1 #center-section-row1 #position-span {
 body .panel #row1 #center-section-row1 #position-span div {
   color: #C70039;
 }
-body .panel .row2 {
-  background-color: #071952;
+body .panel #row2 {
+  background: linear-gradient(to left, #071952, #651919);
   flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+body .panel #row2 #shot-clock-section {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box {
+  font-family: "Digital-7 Mono";
+  font-style: normal;
+  font-size: 5rem;
+  letter-spacing: 20px;
+  background-color: #111111;
+  color: green;
+  border: 3px solid #C70039;
+  border-radius: 10px;
+  height: 100px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=styles.css.map */

@@ -20,6 +20,8 @@ $whole-page: 300px;
 $outline-size: 15px;
 
 $theme_color1: #071952;
+$theme_color1: linear-gradient(to left, #071952, #651919);
+
 $theme_color2: #111111;
 
 $outline_color1: white;
@@ -31,7 +33,7 @@ html {
 }
 
 body {
-    background: linear-gradient(to left, #78C1F3, #9BE8D8);
+    background: black;
     height: 100vh;
     color: white;
     padding: 30px;
@@ -51,7 +53,7 @@ body {
         height: 100%;
 
         #row1 {
-            background-color: $theme_color1;
+            background: $theme_color1;
             flex: 1;
 
             display: grid;
@@ -284,11 +286,44 @@ body {
             }
         }  
 
-        .row2 {
-            background-color: $theme_color1;
+        #row2 {
+            background: $theme_color1;
             flex: 1;
 
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
 
+            #shot-clock-section {
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                font-family: sans-serif;
+                font-weight: 600;
+                font-size: $font-normal;
+
+                #shot-clock-box {
+                    font-family: 'Digital-7 Mono';
+                    font-style: normal;
+                    font-size: $font2-normal;
+                    letter-spacing: 20px;
+
+                    background-color: $theme_color2;
+                    color: green;
+
+                    border: 3px solid $outline_color2;
+                    border-radius: 10px;
+
+                    height: 100px;
+                    width: 150px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
         }
     }
 }
