@@ -259,7 +259,7 @@ body .panel #row2 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
-body .panel #row2 #shot-clock-section {
+body .panel #row2 #shot-clock-section, body .panel #row2 #fouls1-section, body .panel #row2 #fouls2-section {
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@ body .panel #row2 #shot-clock-section {
   font-weight: 600;
   font-size: 2.5rem;
 }
-body .panel #row2 #shot-clock-section #shot-clock-box {
+body .panel #row2 #shot-clock-section #shot-clock-box, body .panel #row2 #shot-clock-section #fouls1-box, body .panel #row2 #shot-clock-section #fouls2-box, body .panel #row2 #fouls1-section #shot-clock-box, body .panel #row2 #fouls1-section #fouls1-box, body .panel #row2 #fouls1-section #fouls2-box, body .panel #row2 #fouls2-section #shot-clock-box, body .panel #row2 #fouls2-section #fouls1-box, body .panel #row2 #fouls2-section #fouls2-box {
   font-family: "Digital-7 Mono";
   font-style: normal;
   font-size: 5rem;

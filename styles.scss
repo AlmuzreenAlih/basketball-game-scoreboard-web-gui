@@ -293,7 +293,7 @@ body {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
 
-            #shot-clock-section {
+            #shot-clock-section,#fouls1-section,#fouls2-section {
                 background-color: transparent;
                 display: flex;
                 flex-direction: column;
@@ -304,7 +304,7 @@ body {
                 font-weight: 600;
                 font-size: $font-normal;
 
-                #shot-clock-box {
+                #shot-clock-box,#fouls1-box,#fouls2-box {
                     font-family: 'Digital-7 Mono';
                     font-style: normal;
                     font-size: $font2-normal;
