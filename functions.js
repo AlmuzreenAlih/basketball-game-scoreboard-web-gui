@@ -88,6 +88,12 @@ $(document).ready(function() {
 
       const intervalId = setInterval(myRepeatingFunction, 100);
 
+
+      $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
+      {
+        retrievedGameData.periodStarted = -1;
+        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+      });
 });
 
 $("#team1-button1").click(function() {
@@ -115,7 +121,10 @@ $("#team1-button6").click(function() {
     DisplayScoreBoardValues();
 })
 $("#period-time-value").click(function() {
-    if (retrievedGameData.periodStarted == 0) {
+    if (retrievedGameData.periodStarted == -1) {
+      retrievedGameData.periodStarted = 0;
+    }
+    else if (retrievedGameData.periodStarted == 0) {
       retrievedGameData.periodStartTime = new Date();
       retrievedGameData.periodStarted = 1;
       localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
@@ -138,4 +147,4 @@ $("#period-time-value").click(function() {
       localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
     }
     DisplayScoreBoardTimes();
-})
+});
