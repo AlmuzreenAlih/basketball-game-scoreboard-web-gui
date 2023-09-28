@@ -287,4 +287,37 @@ body .panel #row2 #shot-clock-section #shot-clock-box, body .panel #row2 #shot-c
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box button, body .panel #row2 #shot-clock-section #fouls1-box button, body .panel #row2 #shot-clock-section #fouls2-box button, body .panel #row2 #fouls1-section #shot-clock-box button, body .panel #row2 #fouls1-section #fouls1-box button, body .panel #row2 #fouls1-section #fouls2-box button, body .panel #row2 #fouls2-section #shot-clock-box button, body .panel #row2 #fouls2-section #fouls1-box button, body .panel #row2 #fouls2-section #fouls2-box button {
+  color: #C70039;
+  background-color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 4 solid black;
+  border-radius: 50%;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box #fouls1-button1, body .panel #row2 #shot-clock-section #fouls1-box #fouls1-button1, body .panel #row2 #shot-clock-section #fouls2-box #fouls1-button1, body .panel #row2 #fouls1-section #shot-clock-box #fouls1-button1, body .panel #row2 #fouls1-section #fouls1-box #fouls1-button1, body .panel #row2 #fouls1-section #fouls2-box #fouls1-button1, body .panel #row2 #fouls2-section #shot-clock-box #fouls1-button1, body .panel #row2 #fouls2-section #fouls1-box #fouls1-button1, body .panel #row2 #fouls2-section #fouls2-box #fouls1-button1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 3px;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box #fouls1-button2, body .panel #row2 #shot-clock-section #fouls1-box #fouls1-button2, body .panel #row2 #shot-clock-section #fouls2-box #fouls1-button2, body .panel #row2 #fouls1-section #shot-clock-box #fouls1-button2, body .panel #row2 #fouls1-section #fouls1-box #fouls1-button2, body .panel #row2 #fouls1-section #fouls2-box #fouls1-button2, body .panel #row2 #fouls2-section #shot-clock-box #fouls1-button2, body .panel #row2 #fouls2-section #fouls1-box #fouls1-button2, body .panel #row2 #fouls2-section #fouls2-box #fouls1-button2 {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 3px;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box #fouls2-button1, body .panel #row2 #shot-clock-section #fouls1-box #fouls2-button1, body .panel #row2 #shot-clock-section #fouls2-box #fouls2-button1, body .panel #row2 #fouls1-section #shot-clock-box #fouls2-button1, body .panel #row2 #fouls1-section #fouls1-box #fouls2-button1, body .panel #row2 #fouls1-section #fouls2-box #fouls2-button1, body .panel #row2 #fouls2-section #shot-clock-box #fouls2-button1, body .panel #row2 #fouls2-section #fouls1-box #fouls2-button1, body .panel #row2 #fouls2-section #fouls2-box #fouls2-button1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 3px;
+}
+body .panel #row2 #shot-clock-section #shot-clock-box #fouls2-button2, body .panel #row2 #shot-clock-section #fouls1-box #fouls2-button2, body .panel #row2 #shot-clock-section #fouls2-box #fouls2-button2, body .panel #row2 #fouls1-section #shot-clock-box #fouls2-button2, body .panel #row2 #fouls1-section #fouls1-box #fouls2-button2, body .panel #row2 #fouls1-section #fouls2-box #fouls2-button2, body .panel #row2 #fouls2-section #shot-clock-box #fouls2-button2, body .panel #row2 #fouls2-section #fouls1-box #fouls2-button2, body .panel #row2 #fouls2-section #fouls2-box #fouls2-button2 {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 3px;
 }/*# sourceMappingURL=styles.css.map */

@@ -33,6 +33,7 @@ function DisplayScoreBoardValues() {
     $("#score2-value").text(retrievedGameData.score2);
     $("#fouls1-value").text(retrievedGameData.fouls1);
     $("#fouls2-value").text(retrievedGameData.fouls2); 
+    $("#period-box").text(retrievedGameData.period); 
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 }
 
@@ -67,6 +68,7 @@ $(document).ready(function() {
         defaultGameData = {
           score1: 0,
           score2: 0,
+          period: 1,
           periodTime: 12*60,   
           periodStarted: 0,
           periodStartTime: new Date(),
@@ -113,14 +115,17 @@ $("#team1-button3").click(function() {
 })
 $("#team1-button4").click(function() {
     retrievedGameData.score1 = retrievedGameData.score1 - 3;
+    if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;}
     DisplayScoreBoardValues();
 })
 $("#team1-button5").click(function() {
     retrievedGameData.score1 = retrievedGameData.score1 - 2;
+    if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;}
     DisplayScoreBoardValues();
 })
 $("#team1-button6").click(function() {
     retrievedGameData.score1 = retrievedGameData.score1 - 1;
+    if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;}
     DisplayScoreBoardValues();
 })
 $("#period-time-value").click(function() {
@@ -155,4 +160,27 @@ $("#period-time-value").click(function() {
 $("#position-span").click(function() {
   $("#arrow1").toggleClass("hidden");
   $("#arrow2").toggleClass("hidden");
+})
+
+$("#fouls1-button1").click(function() {
+  retrievedGameData.fouls1 = retrievedGameData.fouls1 + 1;
+  DisplayScoreBoardValues();
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+})
+$("#fouls1-button2").click(function() {
+  if (retrievedGameData.fouls1 > 0) {
+    retrievedGameData.fouls1 = retrievedGameData.fouls1 - 1;
+  }
+  DisplayScoreBoardValues();
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+})
+$("#period-box").click(function() {
+  if (retrievedGameData.period < 4) {
+    retrievedGameData.period++;
+  }
+  else {
+    retrievedGameData.period = 1;
+  }
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  $("#period-box").text(retrievedGameData.period);
 })
