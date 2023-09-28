@@ -274,14 +274,15 @@ body {
                     background-color: transparent;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-
+                    justify-content: space-around;
+                    width: 100%;
                     font-size: $font-large;
                     
                     div {
                         color: $outline_color2;
                     }
 
+                    .hidden {visibility: hidden;}
                 }
             }
         }  

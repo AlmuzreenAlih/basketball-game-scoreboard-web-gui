@@ -247,11 +247,15 @@ body .panel #row1 #center-section-row1 #position-span {
   background-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
   font-size: 4rem;
 }
 body .panel #row1 #center-section-row1 #position-span div {
   color: #C70039;
+}
+body .panel #row1 #center-section-row1 #position-span .hidden {
+  visibility: hidden;
 }
 body .panel #row2 {
   background: linear-gradient(to left, #071952, #651919);

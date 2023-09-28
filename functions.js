@@ -92,7 +92,10 @@ $(document).ready(function() {
       $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
       {
         retrievedGameData.periodStarted = -1;
+        console.log("pressed longly");
         localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+      }, function() {
+        console.log("pressed shortly");
       });
 });
 
@@ -148,3 +151,8 @@ $("#period-time-value").click(function() {
     }
     DisplayScoreBoardTimes();
 });
+
+$("#position-span").click(function() {
+  $("#arrow1").toggleClass("hidden");
+  $("#arrow2").toggleClass("hidden");
+})

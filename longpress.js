@@ -1,5 +1,5 @@
 //Long-press Plugin for jQuery
-$.fn.longpress = function(time, onlongpress)
+$.fn.longpress = function(time, onlongpress, onshortpress)
 {
 	var timestart = 0;
 	var timer = null;
@@ -35,6 +35,7 @@ $.fn.longpress = function(time, onlongpress)
 		else
 		{
 			//Keep checking
+			onshortpress();
 			timer = setTimeout(checktime, 1);
 		}
 	}
