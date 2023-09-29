@@ -9,12 +9,16 @@
     /* font-family: 'Digital-7', sans-serif; */
     /* font-family: 'Digital-7 Italic', sans-serif; */
 }
+$mobile_size: 480px;
+@mixin mobile {
+    @media (max-width: $mobile_size) {
+        @content;
+    }
+}
 
-$font-large: 4rem;
-$font-normal: 2.5rem;
-
-$font2-large: 7rem;
-$font2-normal: 5rem;
+$font-normal: 1rem; $font-desc: 1.5rem;
+$font-A: 2.25rem; $font-B: 3.5rem;
+$font-C: 5rem; $font-D: 7rem;
 
 $whole-page: 300px;
 $outline-size: 15px;
@@ -29,7 +33,9 @@ $outline_color2: #C70039;
 
 html {
     font-size: 16px;
-    
+    @include mobile {
+        font-size: 10px;
+    }
 }
 
 body {
@@ -38,7 +44,7 @@ body {
     color: white;
     padding: 30px;
 
-    .panel {
+    #panel {
         display: flex;
         flex-direction: column;
         gap:10px;
@@ -59,6 +65,12 @@ body {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
 
+            @include mobile {
+                flex-direction: column;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
             #team1-section {
                 display: flex;
                 flex-direction: column;
@@ -75,7 +87,7 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: $font-large;
+                    font-size: $font-B;
                     letter-spacing: 10px;
                   }
                 #team1-score-box {
@@ -86,7 +98,7 @@ body {
                     border-radius: 10px;
 
                     width: 100%;
-                    font-size: $font2-large;
+                    font-size: $font-D;
                     text-align: center;
                     position: relative;
 
@@ -132,7 +144,7 @@ body {
                     // background-color: #78C1F3;
                     width: 100%;
                     font-family: sans-serif;
-                    font-size: $font-normal;
+                    font-size: $font-A;
                     font-size: 1.8rem;
                     text-align: end;
 
@@ -155,7 +167,7 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: $font-large;
+                    font-size: $font-B;
                     letter-spacing: 10px;
                   }
                 #team2-score-box {
@@ -164,7 +176,7 @@ body {
                     border: 3px solid $outline_color2;
                     border-radius: 10px;
                     width: 100%;
-                    font-size: $font2-large;
+                    font-size: $font-D;
                     text-align: center;
                     position: relative;
 
@@ -209,7 +221,7 @@ body {
                     // background-color: #78C1F3;
                     width: 100%;
                     font-family: sans-serif;
-                    font-size: $font-normal;
+                    font-size: $font-A;
                     font-size: 1.8rem;
                     text-align: start;
 
@@ -223,6 +235,11 @@ body {
                 align-items: center;
                 justify-content: start;
 
+                @include mobile {
+                    order: -1;
+                    grid-column: span 2;
+                }
+
                 #period-span, #quarter-time-box  {
                     border: 0;
                     margin-top: 10px;
@@ -233,11 +250,11 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: $font-normal;
+                    font-size: $font-A;
                     letter-spacing: 10px;
 
                     #period-box {
-                        font-size: $font-normal;
+                        font-size: $font-A;
                         font-style: normal;
                         background-color: $theme_color2;
                         color: $outline_color2;
@@ -257,7 +274,7 @@ body {
 
                     font-family: 'Digital-7 Mono';
                     font-style: normal;
-                    font-size: $font2-large;
+                    font-size: $font-D;
                     letter-spacing: 20px;
 
                     background-color: $theme_color2;
@@ -266,7 +283,7 @@ body {
                     border: 3px solid $outline_color2;
                     border-radius: 10px;
 
-                    width: 400px;
+                    width: 80%;
                     height: 100px;
                 }
 
@@ -276,7 +293,7 @@ body {
                     align-items: center;
                     justify-content: space-around;
                     width: 100%;
-                    font-size: $font-large;
+                    font-size: $font-B;
                     
                     div {
                         color: $outline_color2;
@@ -303,12 +320,12 @@ body {
 
                 font-family: sans-serif;
                 font-weight: 600;
-                font-size: $font-normal;
+                font-size: $font-A;
 
                 #shot-clock-box,#fouls1-box,#fouls2-box {
                     font-family: 'Digital-7 Mono';
                     font-style: normal;
-                    font-size: $font2-normal;
+                    font-size: $font-C;
                     letter-spacing: 20px;
 
                     background-color: $theme_color2;
