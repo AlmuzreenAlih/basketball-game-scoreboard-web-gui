@@ -142,6 +142,13 @@ body #panel #row1 #team1-section #team1-score-box #team1-button6 {
   left: 10px;
 }
 @media (max-width: 480px) {
+  body #panel #row1 #team1-section #team1-score-box {
+    min-height: 75px;
+  }
+  body #panel #row1 #team1-section #team1-score-box button {
+    background-color: black;
+    border: 0;
+  }
   body #panel #row1 #team1-section #team1-score-box #team1-button1 {
     position: absolute;
     top: 3px;

@@ -191,3 +191,5 @@ $("#team1-button3").width($("#team1-button3").height());
 $("#team1-button4").width($("#team1-button4").height());
 $("#team1-button5").width($("#team1-button5").height());
 $("#team1-button6").width($("#team1-button6").height());
+
+// $("#team1-score-box").css("height",6.5 * $("#team1-button6").height());
