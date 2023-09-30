@@ -184,3 +184,10 @@ $("#period-box").click(function() {
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
   $("#period-box").text(retrievedGameData.period);
 })
+
+$("#team1-button1").width($("#team1-button1").height());
+$("#team1-button2").width($("#team1-button2").height());
+$("#team1-button3").width($("#team1-button3").height());
+$("#team1-button4").width($("#team1-button4").height());
+$("#team1-button5").width($("#team1-button5").height());
+$("#team1-button6").width($("#team1-button6").height());
