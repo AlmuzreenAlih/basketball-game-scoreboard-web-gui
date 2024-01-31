@@ -34,6 +34,7 @@ function DisplayScoreBoardValues() {
     $("#fouls1-value").text(retrievedGameData.fouls1);
     $("#fouls2-value").text(retrievedGameData.fouls2); 
     $("#period-box").text(retrievedGameData.period); 
+    $("#shot-clock-value").text(retrievedGameData.shotClockTime)
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 }
 
@@ -55,7 +56,13 @@ function DisplayScoreBoardTimes() {
     else {
       $("#period-time-value").text("12:00");
     }
-    $("#shot-clock-value").text(retrievedGameData.shotClockTime);
+    
+    if (retrievedGameData.shotClockStarted == 1) {
+      var displaying = calculateRemainingTime(retrievedGameData.shotClockTime, retrievedGameData.shotClockStartTime);
+      $("#shot-clock-value").text(displaying);
+    }
+
+    // $("#shot-clock-value").text(retrievedGameData.shotClockTime);
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
 }
 function myRepeatingFunction() {
@@ -74,6 +81,8 @@ $(document).ready(function() {
           periodStartTime: new Date(),
           lastTimeDisplayed: "12:00",
           shotClockTime: 24,
+          shotClockStarted: 0,
+          shotClockStartTime: new Date(),
           fouls1: 0,
           fouls2: 0,
           possession: 1,
@@ -157,6 +166,14 @@ $("#period-time-value").click(function() {
     DisplayScoreBoardTimes();
 });
 
+$('#shot-clock-value').click(function() {
+  retrievedGameData.shotClockStartTime = new Date();
+  retrievedGameData.shotClockStarted = 1;
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  console.log("clicked");
+  DisplayScoreBoardTimes();
+})
+
 $("#position-span").click(function() {
   $("#arrow1").toggleClass("hidden");
   $("#arrow2").toggleClass("hidden");
@@ -183,6 +200,7 @@ $("#period-box").click(function() {
   }
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
   $("#period-box").text(retrievedGameData.period);
+  localStorage.clear();
 })
 
 $("#team1-button1").width($("#team1-button1").height());
@@ -193,3 +211,46 @@ $("#team1-button5").width($("#team1-button5").height());
 $("#team1-button6").width($("#team1-button6").height());
 
 // $("#team1-score-box").css("height",6.5 * $("#team1-button6").height());
+
+$("#clearer").click(function() {
+  localStorage.clear();
+  if (!localStorage.getItem('gameData')) {
+    defaultGameData = {
+      score1: 0,
+      score2: 0,
+      period: 1,
+      periodTime: 12*60,   
+      periodStarted: 0,
+      periodStartTime: new Date(),
+      lastTimeDisplayed: "12:00",
+      shotClockTime: 24,
+      shotClockStarted: 0,
+      shotClockStartTime: new Date(),
+      fouls1: 0,
+      fouls2: 0,
+      possession: 1,
+    };
+
+    localStorage.setItem('gameData', JSON.stringify(defaultGameData));
+  }
+
+  storedData = localStorage.getItem('gameData');
+  retrievedGameData = JSON.parse(storedData);
+  console.log(retrievedGameData);
+  DisplayScoreBoardValues();
+  DisplayScoreBoardTimes();
+
+  const intervalId = setInterval(myRepeatingFunction, 100);
+
+
+  $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
+  {
+    retrievedGameData.periodStarted = -1;
+    console.log("pressed longly");
+    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  }, function() {
+    console.log("pressed shortly");
+  });
+  alert("cleared");
+
+})
