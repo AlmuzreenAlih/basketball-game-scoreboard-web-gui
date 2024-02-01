@@ -148,6 +148,8 @@ body #panel #row1 #team1-section #team1-score-box #team1-button6 {
   body #panel #row1 #team1-section #team1-score-box button {
     color: white;
     border: 0;
+    width: 20px;
+    height: 20px;
   }
   body #panel #row1 #team1-section #team1-score-box #team1-button1 {
     background-color: green;
@@ -205,7 +207,7 @@ body #panel #row1 #team2-section {
 }
 @media (max-width: 480px) {
   body #panel #row1 #team2-section {
-    padding: 0px 5px;
+    padding: 0px 10px;
   }
 }
 body #panel #row1 #team2-section #team2-name, body #panel #row1 #team2-section #team2-score-box, body #panel #row1 #team2-section #team2-bonus {
@@ -223,11 +225,13 @@ body #panel #row1 #team2-section #team2-score-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #C70039;
   background-color: #111111;
+  color: #C70039;
   border: 3px solid #C70039;
   border-radius: 10px;
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   font-size: var(--font-D);
   text-align: center;
   position: relative;
@@ -239,51 +243,95 @@ body #panel #row1 #team2-section #team2-score-box button {
   font-weight: 600;
   border: 4 solid black;
   border-radius: 50%;
+  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button1 {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button2 {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button3 {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button4 {
   position: absolute;
   top: 10px;
   left: 10px;
-  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button5 {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-  padding: 3px;
 }
 body #panel #row1 #team2-section #team2-score-box #team2-button6 {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  padding: 3px;
+}
+@media (max-width: 480px) {
+  body #panel #row1 #team2-section #team2-score-box {
+    min-height: 75px;
+  }
+  body #panel #row1 #team2-section #team2-score-box button {
+    color: white;
+    border: 0;
+    width: 20px;
+    height: 20px;
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button1 {
+    background-color: green;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button2 {
+    background-color: green;
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button3 {
+    background-color: green;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button4 {
+    background-color: red;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button5 {
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+  }
+  body #panel #row1 #team2-section #team2-score-box #team2-button6 {
+    background-color: red;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+  }
 }
 body #panel #row1 #team2-section #team2-bonus {
   width: 100%;
   font-family: sans-serif;
   font-size: var(--font-A);
   font-size: 1.8rem;
-  text-align: start;
+  text-align: end;
 }
 body #panel #row1 #center-section-row1 {
   background-color: transparent;

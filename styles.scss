@@ -164,6 +164,7 @@ body {
                         button {
                             color: white;
                             border: 0;
+                            width: 20px; height: 20px;
                         }
                         #team1-button1 {
                             background-color: green;
@@ -214,7 +215,7 @@ body {
                 overflow-x: hidden;
 
                 @include mobile {
-                    padding: 0px 5px;
+                    padding: 0px 10px;
                 }
 
                 #team2-name, #team2-score-box, #team2-bonus {
@@ -233,12 +234,15 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-
-                    color: $outline_color2;
+                    
                     background-color: $theme_color2;
+                    color: $outline_color2;
+
                     border: 3px solid $outline_color2;
                     border-radius: 10px;
+
                     width: 100%;
+                    height: fit-content;
                     font-size: var(--font-D);
                     text-align: center;
                     position: relative;
@@ -251,33 +255,65 @@ body {
 
                         border: 4 solid black;
                         border-radius: 50%;
+                        padding: 3px;
                     }
 
                     #team2-button1 {
                         position: absolute; top: 10px; right: 10px;
-                        padding:3px;
                     }
                     #team2-button2 {
                         position: absolute; top: 50%; right: 10px;
                         transform: translateY(-50%);
-                        padding:3px;
                     }
                     #team2-button3 {
                         position: absolute; bottom: 10px; right: 10px;
-                        padding:3px;
+                        // transform: translateY(50%);
                     }
                     #team2-button4 {
                         position: absolute; top: 10px; left: 10px;
-                        padding:3px;
                     }
                     #team2-button5 {
                         position: absolute; top: 50%; left: 10px;
                         transform: translateY(-50%);
-                        padding:3px;
                     }
                     #team2-button6 {
                         position: absolute; bottom: 10px; left: 10px;
-                        padding:3px;
+                    }
+
+                    @include mobile {
+                        min-height: 75px;
+                        button {
+                            color: white;
+                            border: 0;
+                            width: 20px; height: 20px;
+                        }
+                        #team2-button1 {
+                            background-color: green;
+                            position: absolute; top: 3px; right: 3px;
+                        }
+                        #team2-button2 {
+                            background-color: green;
+                            position: absolute; top: 50%; right: 3px;
+                            transform: translateY(-50%);
+                        }
+                        #team2-button3 {
+                            background-color: green;
+                            position: absolute; bottom: 3px; right: 3px;
+                            // transform: translateY(50%);
+                        }
+                        #team2-button4 {
+                            background-color: red;
+                            position: absolute; top: 3px; left: 3px;
+                        }
+                        #team2-button5 {
+                            background-color: red;
+                            position: absolute; top: 50%; left: 3px;
+                            transform: translateY(-50%);
+                        }
+                        #team2-button6 {
+                            background-color: red;
+                            position: absolute; bottom: 3px; left: 3px;
+                        }
                     }
                   }
                 #team2-bonus {
@@ -286,7 +322,7 @@ body {
                     font-family: sans-serif;
                     font-size: var(--font-A);
                     font-size: 1.8rem;
-                    text-align: start;
+                    text-align: end;
 
                   }
             }
