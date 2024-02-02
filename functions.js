@@ -159,10 +159,28 @@ function PeriodResume() {
 }
 
 function PeriodTimeValueFunction() {
-  if (retrievedGameData.periodStarted == -1) {retrievedGameData.periodStarted = 0;}
-  else if (retrievedGameData.periodStarted == 0) {PeriodStart();}
-  else if (retrievedGameData.periodStarted == 2) {PeriodResume();}
-  else {PeriodPause();}
+  if (retrievedGameData.periodStarted == -1) {
+    retrievedGameData.periodStarted = 0;
+  }
+  else if (retrievedGameData.periodStarted == 0) {
+    PeriodStart(); 
+    if (retrievedGameData.shotClockStarted == 0) {//Option 1
+      ShotClockStart();
+    }
+  }
+  else if (retrievedGameData.periodStarted == 2) {
+    PeriodResume();
+    if (retrievedGameData.shotClockStarted == 2) {//Option 1
+      ShotClockResume();
+    }
+  }
+
+  else {
+    PeriodPause();
+    if (retrievedGameData.shotClockStarted == 1) {//Option 1
+      ShotClockPause();
+    }
+  }
 }
 
 function ShotClockStart() {
@@ -216,10 +234,7 @@ $("#team2-button4").click(function() {Team2Button4Function();})
 $("#team2-button5").click(function() {Team2Button5Function();})
 $("#team2-button6").click(function() {Team2Button6Function();})
 
-$("#period-time-value").click(function() {
-  PeriodTimeValueFunction();
-  if ((retrievedGameData.shotClockStarted == 0) || (retrievedGameData.shotClockStarted == 2)) {}
-});
+$("#period-time-value").click(function() {PeriodTimeValueFunction();});
 $('#shot-clock-value').click(function() {ShotClockValueFunction();})
 
 $("#position-span").click(function() {
