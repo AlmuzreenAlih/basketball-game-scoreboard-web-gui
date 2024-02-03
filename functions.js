@@ -266,6 +266,10 @@ $("#period-box").click(function() {
   localStorage.clear();
 })
 
+$("settings-box").click(function() {
+  
+})
+
 $("#team1-button1").width($("#team1-button1").height());
 $("#team1-button2").width($("#team1-button2").height());
 $("#team1-button3").width($("#team1-button3").height());
@@ -317,3 +321,4 @@ $("#clearer").click(function() {
   alert("cleared");
 
 })
+

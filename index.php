@@ -13,8 +13,37 @@
 </head>
 <body>
     <section id="panel">
-        <div id="settings-box">
+        <button id="settings-box">
             <img src="img/settings.png" alt="">
+        </button>
+        <div id="settings-panel">
+            <section>SETTINGS</section>            
+            <section>
+
+                <input type="checkbox" id="Option1" value="Bike">
+                <label for="Option1"> Synchronize game period time with shot clock time</label><br>
+        
+                <p>Tips:</p>
+                <p>• Only click the game period time, the shot clock will do the same thing.</p>
+                <p>• if there is a foul, press game clock, it will pause both the game clock and shot clock</p>
+            </section>
+            <section>
+                <input type="checkbox" id="Option1" value="Bike">
+                <label for="Option1"> Reset shot clock timer when foul is added. </label><br>
+            </section>
+            <section>
+                <input type="checkbox" id="Option1" value="Bike">
+                <label for="Option1"> Switch possesion/sides after a 2pt or 3pt goal is added. </label><br>
+            </section>
+            
+            <section>
+                <input type="checkbox" id="Option1" value="Bike">
+                <label for="Option1"> Reset timer after a 2pt or 3pt goal is added. </label><br>
+            </section>      
+            <section>
+                <button>Cancel</button>
+                <button>Apply</button>
+            </section>
         </div>
         <div id="row1">
             <section id="team1-section">
