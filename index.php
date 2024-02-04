@@ -13,7 +13,7 @@
 </head>
 <body>
     <section id="panel">
-        <button id="settings-box">
+        <button id="settings-button">
             <img src="img/settings.png" alt="">
         </button>
         <div id="settings-panel">
@@ -41,8 +41,8 @@
                 <label for="Option1"> Reset timer after a 2pt or 3pt goal is added. </label><br>
             </section>      
             <section>
-                <button>Cancel</button>
-                <button>Apply</button>
+                <button id="setting-button-cancel">Cancel</button>
+                <button id="setting-button-apply">Apply</button>
             </section>
         </div>
         <div id="row1">

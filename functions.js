@@ -265,10 +265,10 @@ $("#period-box").click(function() {
   $("#period-box").text(retrievedGameData.period);
   localStorage.clear();
 })
-
-$("settings-box").click(function() {
-  
-})
+$("#settings-panel").hide()
+$("#settings-button").click(function() {$("#settings-panel").show()})
+$("#setting-button-cancel").click(function() {$("#settings-panel").hide()})
+$("#setting-button-apply").click(function() {$("#settings-panel").hide()})
 
 $("#team1-button1").width($("#team1-button1").height());
 $("#team1-button2").width($("#team1-button2").height());

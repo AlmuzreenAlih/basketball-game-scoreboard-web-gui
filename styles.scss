@@ -74,7 +74,7 @@ body {
 
         position: relative;
 
-        #settings-box {
+        #settings-button {
             background-color: transparent;
             display: flex;
             align-items: center;
@@ -104,7 +104,8 @@ body {
             left: 50%;
             transform: translate(-50%,-50%);
 
-            height: 75%;
+            height: fit-content;
+            padding-bottom: 10px;
             width: 75%;
             
             z-index: 100;
@@ -118,16 +119,41 @@ body {
             section:nth-child(1) {
                 padding: 10px;
                 text-align: center;
-                background: red;
+                background: transparent;
                 font-size: 40px;
                 width: 100%;
             }
             section:not(:first-child) {
                 padding: 15px 20px 0px 20px;
             
-                background: red;
+                background: transparent;
                 font-size: 20px;
                 width: 100%;
+            }
+            section:last-child {
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+
+                button {
+                    font-size: 20px;
+                    height: 30px;
+                    width: 100px;
+                    border: 0px solid #888;
+                    border-radius: 8px;
+                    // box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
+                }
+
+                #setting-button-cancel {
+                    background: #F53649;
+                }
+
+                #setting-button-apply {
+                    background: #36BC20;
+                }
+                
             }
 
         }

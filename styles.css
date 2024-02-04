@@ -49,7 +49,7 @@ body #panel {
   height: 100%;
   position: relative;
 }
-body #panel #settings-box {
+body #panel #settings-button {
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ body #panel #settings-box {
   border: none;
   outline: none;
 }
-body #panel #settings-box img {
+body #panel #settings-button img {
   height: 45px;
 }
 body #panel #settings-panel {
@@ -73,7 +73,9 @@ body #panel #settings-panel {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 75%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 10px;
   width: 75%;
   z-index: 100;
   border: 5px solid white;
@@ -84,15 +86,35 @@ body #panel #settings-panel {
 body #panel #settings-panel section:nth-child(1) {
   padding: 10px;
   text-align: center;
-  background: red;
+  background: transparent;
   font-size: 40px;
   width: 100%;
 }
 body #panel #settings-panel section:not(:first-child) {
   padding: 15px 20px 0px 20px;
-  background: red;
+  background: transparent;
   font-size: 20px;
   width: 100%;
+}
+body #panel #settings-panel section:last-child {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+body #panel #settings-panel section:last-child button {
+  font-size: 20px;
+  height: 30px;
+  width: 100px;
+  border: 0px solid #888;
+  border-radius: 8px;
+}
+body #panel #settings-panel section:last-child #setting-button-cancel {
+  background: #F53649;
+}
+body #panel #settings-panel section:last-child #setting-button-apply {
+  background: #36BC20;
 }
 body #panel #row1 {
   background: linear-gradient(to left, #071952, #651919);
