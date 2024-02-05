@@ -30,6 +30,16 @@ html {
   font-size: 16px;
 }
 
+#reset-button2 {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: black !important;
+  width: 25px;
+  height: 25px;
+}
+
 body {
   background: black;
   height: 100vh;
@@ -440,6 +450,7 @@ body #panel #row1 #center-section-row1 #quarter-time-box {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   font-family: "Orbitron";
   font-style: normal;
   font-size: var(--font-D);

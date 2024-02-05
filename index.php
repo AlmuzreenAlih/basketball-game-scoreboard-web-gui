@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1, viewport-fit=cover">
     <title>Masjid Harmony Live Scoreboard</title>
     <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
-                
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
     <link rel="stylesheet" href="styles.css?x=<?php echo strval(rand())?>">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="./longpress.js?x=<?php echo strval(rand())?>"></script>
@@ -20,25 +20,25 @@
             <section>SETTINGS</section>            
             <section>
 
-                <input type="checkbox" id="Option1" value="Bike">
-                <label for="Option1"> Synchronize game period time with shot clock time</label><br>
+                <input type="checkbox" id="SettingCheckbox1" value="Bike">
+                <label for="SettingCheckbox1"> Synchronize game period time with shot clock time</label><br>
         
                 <p>Tips:</p>
                 <p>• Only click the game period time, the shot clock will do the same thing.</p>
                 <p>• if there is a foul, press game clock, it will pause both the game clock and shot clock</p>
             </section>
             <section>
-                <input type="checkbox" id="Option1" value="Bike">
-                <label for="Option1"> Reset shot clock timer when foul is added. </label><br>
+                <input type="checkbox" id="SettingCheckbox2" value="Bike">
+                <label for="SettingCheckbox2"> Reset shot clock timer when foul is added. </label><br>
             </section>
             <section>
-                <input type="checkbox" id="Option1" value="Bike">
-                <label for="Option1"> Switch possesion/sides after a 2pt or 3pt goal is added. </label><br>
+                <input type="checkbox" id="SettingCheckbox3" value="Bike">
+                <label for="SettingCheckbox3"> Switch possesion/sides after a 2pt or 3pt goal is added. </label><br>
             </section>
             
             <section>
-                <input type="checkbox" id="Option1" value="Bike">
-                <label for="Option1"> Reset timer after a 2pt or 3pt goal is added. </label><br>
+                <input type="checkbox" id="SettingCheckbox4" value="Bike">
+                <label for="SettingCheckbox4"> Reset timer after a 2pt or 3pt goal is added. </label><br>
             </section>      
             <section>
                 <button id="setting-button-cancel">Cancel</button>
@@ -64,7 +64,8 @@
                     <span id="period-box">1</span>
                 </span>
                 <span id="quarter-time-box">
-                    <span class="" id="period-time-value">1:00</span>
+                    <span class="" id="period-time-value">12:00</span>
+                    <button id="reset-button" class="material-symbols-outlined">device_reset</button>
                 </span>
 
                 <span id="position-span">
@@ -98,6 +99,8 @@
             <section id="shot-clock-section">SHOT CLOCK
                 <span id="shot-clock-box">
                     <span class="" id="shot-clock-value">0</span>
+                    <!-- <button class="material-symbols-outlined play-button2">device_reset</button> -->
+                    <button id="reset-button2" class="material-symbols-outlined">device_reset</button>
                 </span>
             </section>
             <section id="fouls2-section">FOULS

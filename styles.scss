@@ -52,6 +52,26 @@ html {
     font-size: 16px;
 }
 
+// .play-button2 {
+//     position: absolute;
+//     right: 4px;
+//     top: 30%;
+//     transform: translate(0,-50%);
+//     color: black !important;
+//     width: 25px;
+//     height: 25px;
+// }
+
+#reset-button2 {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translate(0,-50%);
+    color: black !important;
+    width: 25px;
+    height: 25px;
+}
+
 body {
     background: black;
     height: 100vh;
@@ -456,6 +476,7 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    position: relative;
 
                     font-family: 'Orbitron';
                     font-style: normal;

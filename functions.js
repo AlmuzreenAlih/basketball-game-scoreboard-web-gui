@@ -40,9 +40,10 @@ function DisplayScoreBoardValues() {
 function DisplayScoreBoardTimes() {
     if ((retrievedGameData.periodStarted == 1) || 
         (retrievedGameData.periodStarted == 1)) {
-        if (typeof(retrievedGameData.periodStartTime)=="string") {
-            retrievedGameData.periodStartTime = new Date(retrievedGameData.periodStartTime);
-        }
+        console.log("HAHAHAAHA: ",typeof(retrievedGameData.periodStartTime));
+        // if (typeof(retrievedGameData.periodStartTime)=="string") {
+        //     retrievedGameData.periodStartTime = new Date(retrievedGameData.periodStartTime);
+        // }
         var displaying = calculateRemainingTime(retrievedGameData.periodTime, retrievedGameData.periodStartTime);
         $("#period-time-value").text(displaying);
         retrievedGameData.lastTimeDisplayed = displaying;
@@ -73,37 +74,51 @@ function myRepeatingFunction() {
     DisplayScoreBoardTimes();
     console.log("whut")
   }
- 
-$(document).ready(function() {
+
+  function InitializeLocalStorage() {
     if (!localStorage.getItem('gameData')) {
-        defaultGameData = {
-          score1: 0,
-          score2: 0,
-          period: 1,
-          periodTime: 12*60,   
-          periodStarted: 0,
-          periodStartTime: new Date(),
-          lastTimeDisplayed: "12:00",
-          shotClockTime: 24,
-          shotClockStarted: 0,
-          shotClockStartTime: new Date(),
-          fouls1: 0,
-          fouls2: 0,
-          possession: 1,
-        };
+      defaultGameData = {
+        score1: 0,
+        score2: 0,
+        period: 1,
+        periodTime: 12*60,   
+        periodStarted: 0,
+        periodStartTime: new Date(),
+        lastTimeDisplayed: "12:00",
+        shotClockTime: 24,
+        shotClockStarted: 0,
+        shotClockStartTime: new Date(),
+        fouls1: 0,
+        fouls2: 0,
+        possession: 1,
 
-        localStorage.setItem('gameData', JSON.stringify(defaultGameData));
-      }
+        gameTimeSyncShotClock: false,
+        foulSyncShotClock: false,
+        goalSyncShotClock: false,
+        goalSyncPossession: false,
+      };
+  
+      localStorage.setItem('gameData', JSON.stringify(defaultGameData));
+    }
+  
+    storedData = localStorage.getItem('gameData');
+    retrievedGameData = JSON.parse(storedData);
+    retrievedGameData.periodStartTime = new Date((retrievedGameData.periodStartTime));
+    retrievedGameData.pauseTime = new Date((retrievedGameData.pauseTime));
+    retrievedGameData.resumeTime = new Date((retrievedGameData.resumeTime));
 
-      storedData = localStorage.getItem('gameData');
-      retrievedGameData = JSON.parse(storedData);
-      console.log(retrievedGameData);
-      DisplayScoreBoardValues();
-      DisplayScoreBoardTimes();
+    retrievedGameData.shotClockStartTime = new Date((retrievedGameData.shotClockStartTime));
+    retrievedGameData.pauseTime2 = new Date((retrievedGameData.pauseTime2));
+    retrievedGameData.resumeTime2 = new Date((retrievedGameData.resumeTime2));
+    
+    DisplayScoreBoardValues();
+    DisplayScoreBoardTimes();
+  }
 
+$(document).ready(function() {
+      InitializeLocalStorage();
+      InitializeSettingsPanel();
       const intervalId = setInterval(myRepeatingFunction, 100);
-
-
       $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
       {
         retrievedGameData.periodStarted = -1;
@@ -164,20 +179,20 @@ function PeriodTimeValueFunction() {
   }
   else if (retrievedGameData.periodStarted == 0) {
     PeriodStart(); 
-    if (retrievedGameData.shotClockStarted == 0) {//Option 1
+    if ((retrievedGameData.shotClockStarted == 0) && (retrievedGameData.gameTimeSyncShotClock == true)) {//Option 1
       ShotClockStart();
     }
   }
   else if (retrievedGameData.periodStarted == 2) {
     PeriodResume();
-    if (retrievedGameData.shotClockStarted == 2) {//Option 1
+    if ((retrievedGameData.shotClockStarted == 2) && (retrievedGameData.gameTimeSyncShotClock == true)) {//Option 1
       ShotClockResume();
     }
   }
 
   else {
     PeriodPause();
-    if (retrievedGameData.shotClockStarted == 1) {//Option 1
+    if ((retrievedGameData.shotClockStarted == 1) && (retrievedGameData.gameTimeSyncShotClock == true)) {//Option 1
       ShotClockPause();
     }
   }
@@ -218,6 +233,13 @@ function ShotClockValueFunction() {
   else if (retrievedGameData.shotClockStarted == 0) {ShotClockStart();}
   else if (retrievedGameData.shotClockStarted == 2) {ShotClockResume();}
   else {ShotClockPause();}
+}
+
+function InitializeSettingsPanel() {
+  $("#SettingCheckbox1").prop("checked", retrievedGameData.gameTimeSyncShotClock)
+  $("#SettingCheckbox2").prop("checked", retrievedGameData.foulSyncShotClock)
+  $("#SettingCheckbox3").prop("checked", retrievedGameData.goalSyncPossession)
+  $("#SettingCheckbox4").prop("checked", retrievedGameData.goalSyncShotClock)
 }
 //---------------Button Function Links---------------
 $("#team1-button1").click(function() {Team1Button1Function();})
@@ -268,7 +290,14 @@ $("#period-box").click(function() {
 $("#settings-panel").hide()
 $("#settings-button").click(function() {$("#settings-panel").show()})
 $("#setting-button-cancel").click(function() {$("#settings-panel").hide()})
-$("#setting-button-apply").click(function() {$("#settings-panel").hide()})
+$("#setting-button-apply").click(function() {
+  $("#settings-panel").hide()
+  retrievedGameData.gameTimeSyncShotClock = $("#SettingCheckbox1").prop("checked");
+  retrievedGameData.foulSyncShotClock = $("#SettingCheckbox2").prop("checked");
+  retrievedGameData.goalSyncPossession = $("#SettingCheckbox3").prop("checked");
+  retrievedGameData.goalSyncShotClock = $("#SettingCheckbox4").prop("checked");
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+});
 
 $("#team1-button1").width($("#team1-button1").height());
 $("#team1-button2").width($("#team1-button2").height());
@@ -281,43 +310,8 @@ $("#team1-button6").width($("#team1-button6").height());
 
 $("#clearer").click(function() {
   localStorage.clear();
-  if (!localStorage.getItem('gameData')) {
-    defaultGameData = {
-      score1: 0,
-      score2: 0,
-      period: 1,
-      periodTime: 12*60,   
-      periodStarted: 0,
-      periodStartTime: new Date(),
-      lastTimeDisplayed: "12:00",
-      shotClockTime: 24,
-      shotClockStarted: 0,
-      shotClockStartTime: new Date(),
-      fouls1: 0,
-      fouls2: 0,
-      possession: 1,
-    };
-
-    localStorage.setItem('gameData', JSON.stringify(defaultGameData));
-  }
-
-  storedData = localStorage.getItem('gameData');
-  retrievedGameData = JSON.parse(storedData);
-  console.log(retrievedGameData);
-  DisplayScoreBoardValues();
-  DisplayScoreBoardTimes();
-
-  const intervalId = setInterval(myRepeatingFunction, 100);
-
-
-  $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
-  {
-    retrievedGameData.periodStarted = -1;
-    console.log("pressed longly");
-    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
-  }, function() {
-    console.log("pressed shortly");
-  });
+  InitializeLocalStorage();
+  InitializeSettingsPanel();
   alert("cleared");
 
 })
