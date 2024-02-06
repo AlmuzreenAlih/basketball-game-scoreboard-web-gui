@@ -299,6 +299,34 @@ $("#setting-button-apply").click(function() {
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
 });
 
+$("#reset-button").click(function() {
+  retrievedGameData.periodTime = 12*60;
+  retrievedGameData.resumeTime = new Date();
+  if ((retrievedGameData.periodStarted == 2) || (retrievedGameData.periodStarted == 4)) {
+    retrievedGameData.periodStartTime = new Date();
+    retrievedGameData.periodStarted = 0;
+  }
+  else {
+    retrievedGameData.periodStartTime = new Date();
+  }
+
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+})
+
+$("#reset-button2").click(function() {
+  retrievedGameData.shotClockTime = 24;
+  retrievedGameData.resumeTime2 = new Date();
+  if ((retrievedGameData.shotClockStarted == 2) || (retrievedGameData.shotClockStarted == 4)) {
+    retrievedGameData.shotClockStartTime = new Date();
+    retrievedGameData.shotClockStarted = 0;
+  }
+  else {
+    retrievedGameData.shotClockStartTime = new Date();
+  }
+
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+})
+
 $("#team1-button1").width($("#team1-button1").height());
 $("#team1-button2").width($("#team1-button2").height());
 $("#team1-button3").width($("#team1-button3").height());
