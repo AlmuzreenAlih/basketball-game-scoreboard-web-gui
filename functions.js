@@ -294,6 +294,24 @@ $("#fouls1-button2").click(function() {
   DisplayScoreBoardValues();
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 })
+
+$("#fouls2-button1").click(function() {
+  retrievedGameData.fouls2 = retrievedGameData.fouls2 + 1;
+  DisplayScoreBoardValues();
+  if (retrievedGameData.foulSyncShotClock) {
+    retrievedGameData.shotClockStarted = 0;
+    Reset2();
+  }
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+})
+$("#fouls2-button2").click(function() {
+  if (retrievedGameData.fouls2 > 0) {
+    retrievedGameData.fouls2 = retrievedGameData.fouls2 - 1;
+  }
+  DisplayScoreBoardValues();
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+})
+
 $("#period-box").click(function() {
   if (retrievedGameData.period < 4) {
     retrievedGameData.period++;
