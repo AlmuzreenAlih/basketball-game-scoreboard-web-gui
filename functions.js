@@ -241,6 +241,20 @@ function InitializeSettingsPanel() {
   $("#SettingCheckbox3").prop("checked", retrievedGameData.goalSyncPossession)
   $("#SettingCheckbox4").prop("checked", retrievedGameData.goalSyncShotClock)
 }
+
+function Reset2() {
+  retrievedGameData.shotClockTime = 24;
+  retrievedGameData.resumeTime2 = new Date();
+  if ((retrievedGameData.shotClockStarted == 2) || (retrievedGameData.shotClockStarted == 4)) {
+    retrievedGameData.shotClockStartTime = new Date();
+    retrievedGameData.shotClockStarted = 0;
+  }
+  else {
+    retrievedGameData.shotClockStartTime = new Date();
+  }
+
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+}
 //---------------Button Function Links---------------
 $("#team1-button1").click(function() {Team1Button1Function();})
 $("#team1-button2").click(function() {Team1Button2Function();})
@@ -267,6 +281,10 @@ $("#position-span").click(function() {
 $("#fouls1-button1").click(function() {
   retrievedGameData.fouls1 = retrievedGameData.fouls1 + 1;
   DisplayScoreBoardValues();
+  if (retrievedGameData.foulSyncShotClock) {
+    retrievedGameData.shotClockStarted = 0;
+    Reset2();
+  }
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 })
 $("#fouls1-button2").click(function() {
@@ -314,17 +332,7 @@ $("#reset-button").click(function() {
 })
 
 $("#reset-button2").click(function() {
-  retrievedGameData.shotClockTime = 24;
-  retrievedGameData.resumeTime2 = new Date();
-  if ((retrievedGameData.shotClockStarted == 2) || (retrievedGameData.shotClockStarted == 4)) {
-    retrievedGameData.shotClockStartTime = new Date();
-    retrievedGameData.shotClockStarted = 0;
-  }
-  else {
-    retrievedGameData.shotClockStartTime = new Date();
-  }
-
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  Reset2();
 })
 
 $("#team1-button1").width($("#team1-button1").height());
