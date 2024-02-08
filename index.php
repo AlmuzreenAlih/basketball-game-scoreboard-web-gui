@@ -23,13 +23,13 @@
                 <input type="checkbox" id="SettingCheckbox1" value="Bike">
                 <label for="SettingCheckbox1"> Synchronize game period time with shot clock time</label><br>
         
-                <p>Tips:</p>
+                <!-- <p>Tips:</p> -->
                 <p>• Only click the game period time, the shot clock will do the same thing.</p>
                 <p>• if there is a foul, press game clock, it will pause both the game clock and shot clock</p>
             </section>
             <section>
                 <input type="checkbox" id="SettingCheckbox2" value="Bike">
-                <label for="SettingCheckbox2"> Reset shot clock timer when foul is added. </label><br>
+                <label for="SettingCheckbox2"> Pause game time and reset shot clock timer when foul is added. </label><br>
             </section>
             <section>
                 <input type="checkbox" id="SettingCheckbox3" value="Bike">
@@ -38,7 +38,7 @@
             
             <section>
                 <input type="checkbox" id="SettingCheckbox4" value="Bike">
-                <label for="SettingCheckbox4"> Reset timer after a 2pt or 3pt goal is added. </label><br>
+                <label for="SettingCheckbox4"> Reset shot clock after a 2pt or 3pt goal is added. </label><br>
             </section>      
             <section>
                 <button id="setting-button-cancel">Cancel</button>

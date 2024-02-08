@@ -130,15 +130,15 @@ $(document).ready(function() {
 });
 
 //---------------Button Functions ---------------
-function Team1Button1Function() {SwitchPossesion2(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
-function Team1Button2Function() {SwitchPossesion2(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
+function Team1Button1Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
+function Team1Button2Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
 function Team1Button3Function() {retrievedGameData.score1 = retrievedGameData.score1 + 1; DisplayScoreBoardValues();}
 function Team1Button4Function() {retrievedGameData.score1 = retrievedGameData.score1 - 3; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 function Team1Button5Function() {retrievedGameData.score1 = retrievedGameData.score1 - 2; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 function Team1Button6Function() {retrievedGameData.score1 = retrievedGameData.score1 - 1; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 
-function Team2Button1Function() {SwitchPossesion1(); retrievedGameData.score2 = retrievedGameData.score2 + 3; DisplayScoreBoardValues();}
-function Team2Button2Function() {SwitchPossesion1(); retrievedGameData.score2 = retrievedGameData.score2 + 2; DisplayScoreBoardValues();}
+function Team2Button1Function() {SwitchPossesion1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 3; DisplayScoreBoardValues();}
+function Team2Button2Function() {SwitchPossesion1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 2; DisplayScoreBoardValues();}
 function Team2Button3Function() {retrievedGameData.score2 = retrievedGameData.score2 + 1; DisplayScoreBoardValues();}
 function Team2Button4Function() {retrievedGameData.score2 = retrievedGameData.score2 - 3; if (retrievedGameData.score2 < 0) {retrievedGameData.score2 = 0;} DisplayScoreBoardValues();}
 function Team2Button5Function() {retrievedGameData.score2 = retrievedGameData.score2 - 2; if (retrievedGameData.score2 < 0) {retrievedGameData.score2 = 0;} DisplayScoreBoardValues();}
@@ -254,6 +254,12 @@ function Reset2() {
   }
 
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+}
+
+function ResetShotClock() {
+  if (retrievedGameData.goalSyncShotClock) {
+    Reset2();
+  }
 }
 
 function SwitchPossesion1() {
