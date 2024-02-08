@@ -73,6 +73,10 @@
                     <span>POSS</span>
                     <div id="arrow2" class="hidden">►</div>
                 </span>
+                <span>
+                    <button id="play-button" class="material-symbols-outlined">play_arrow</button>
+                    <button id="clearall-button" class="material-symbols-outlined">replay</button>
+                </span>
             </section>
             <section id="team2-section">
                 <span id="team2-name">Team Mahdi</span>
