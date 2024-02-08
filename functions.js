@@ -129,6 +129,31 @@ $(document).ready(function() {
       });
 });
 
+// Define a function to handle clicks outside the settings panel
+function handleClickOutsideSettingsPanel(event) {
+  if (!$(event.target).closest('#settings-panel').length) {
+    if (PanelShown) {
+      $("#settings-panel").hide();
+      setTimeout(disableClickListener,100);
+      PanelShown = false; // Update PanelShown status
+    }
+  }
+}
+
+// Attach the event listener initially
+$(document).on('click', handleClickOutsideSettingsPanel);
+
+// Later, if you want to disable the listener
+function disableClickListener() {
+  $(document).off('click', handleClickOutsideSettingsPanel);
+}
+
+// To re-enable the listener
+function enableClickListener() {
+  $(document).on('click', handleClickOutsideSettingsPanel);
+}
+
+disableClickListener();
 //---------------Button Functions ---------------
 function Team1Button1Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
 function Team1Button2Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
@@ -345,7 +370,7 @@ $("#period-box").click(function() {
   localStorage.clear();
 })
 $("#settings-panel").hide()
-$("#settings-button").click(function() {$("#settings-panel").show()})
+$("#settings-button").click(function() {$("#settings-panel").show(); PanelShown = true; setTimeout(enableClickListener,100);})
 $("#setting-button-cancel").click(function() {$("#settings-panel").hide()})
 $("#setting-button-apply").click(function() {
   $("#settings-panel").hide()
