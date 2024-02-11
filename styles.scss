@@ -520,6 +520,21 @@ body {
                     width: 80%;
                     height: 100px;
                 }
+                @keyframes upAndDown {
+                    0%, 100% { transform: translateY(0); } /* Start and end position */
+                    50% { transform: translateY(-20px); } /* Middle position */
+                }
+
+                #hand1 {
+                    position: absolute;
+                    top: 50%;
+                    animation: upAndDown 2s infinite;
+                    height: 40px;
+                    img {
+                        height: 170px;
+                    }
+                    // transform: translate(0%,-50%);
+                }
 
                 #position-span {
                     background-color: transparent;

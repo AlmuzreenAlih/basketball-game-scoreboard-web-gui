@@ -371,7 +371,7 @@ $("#period-box").click(function() {
 })
 $("#settings-panel").hide()
 $("#settings-button").click(function() {$("#settings-panel").show(); PanelShown = true; setTimeout(enableClickListener,100);})
-$("#setting-button-cancel").click(function() {$("#settings-panel").hide()})
+$("#setting-button-cancel").click(function() {$("#settings-panel").hide(); setTimeout(enableClickListener,100);})
 $("#setting-button-apply").click(function() {
   $("#settings-panel").hide()
   retrievedGameData.gameTimeSyncShotClock = $("#SettingCheckbox1").prop("checked");
@@ -379,6 +379,7 @@ $("#setting-button-apply").click(function() {
   retrievedGameData.goalSyncPossession = $("#SettingCheckbox3").prop("checked");
   retrievedGameData.goalSyncShotClock = $("#SettingCheckbox4").prop("checked");
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  setTimeout(enableClickListener,100);
 });
 
 $("#reset-button").click(function() {

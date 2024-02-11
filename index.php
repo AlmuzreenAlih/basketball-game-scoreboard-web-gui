@@ -66,17 +66,17 @@
                 <span id="quarter-time-box">
                     <span class="" id="period-time-value">12:00</span>
                     <button id="reset-button" class="material-symbols-outlined">device_reset</button>
+                    <div id="hand1"><img src="./img/hand.png" alt=""></div>
                 </span>
-
                 <span id="position-span">
                     <div id="arrow1">◄</div>
                     <span>POSS</span>
                     <div id="arrow2" class="hidden">►</div>
                 </span>
-                <span>
+                <!-- <span>
                     <button id="play-button" class="material-symbols-outlined">play_arrow</button>
                     <button id="clearall-button" class="material-symbols-outlined">replay</button>
-                </span>
+                </span> -->
             </section>
             <section id="team2-section">
                 <span id="team2-name">Team Mahdi</span>

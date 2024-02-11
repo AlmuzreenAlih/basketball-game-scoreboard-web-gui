@@ -488,6 +488,23 @@ body #panel #row1 #center-section-row1 #quarter-time-box {
   width: 80%;
   height: 100px;
 }
+@keyframes upAndDown {
+  0%, 100% {
+    transform: translateY(0);
+  } /* Start and end position */
+  50% {
+    transform: translateY(-20px);
+  } /* Middle position */
+}
+body #panel #row1 #center-section-row1 #hand1 {
+  position: absolute;
+  top: 50%;
+  animation: upAndDown 2s infinite;
+  height: 40px;
+}
+body #panel #row1 #center-section-row1 #hand1 img {
+  height: 170px;
+}
 body #panel #row1 #center-section-row1 #position-span {
   background-color: transparent;
   display: flex;
