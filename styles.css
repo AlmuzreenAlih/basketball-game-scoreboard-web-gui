@@ -201,7 +201,6 @@ body #panel #row1 #team1-section {
   align-items: center;
   justify-content: center;
   padding: 0px 20px;
-  overflow-x: hidden;
 }
 @media (max-width: 480px) {
   body #panel #row1 #team1-section {
@@ -233,6 +232,9 @@ body #panel #row1 #team1-section #team1-score-box {
   font-size: var(--font-D);
   text-align: center;
   position: relative;
+}
+body #panel #row1 #team1-section #team1-score-box #arrow1 {
+  top: 50%;
 }
 body #panel #row1 #team1-section #team1-score-box button {
   color: #C70039;
@@ -337,7 +339,6 @@ body #panel #row1 #team2-section {
   align-items: center;
   justify-content: center;
   padding: 0px 20px;
-  overflow-x: hidden;
 }
 @media (max-width: 480px) {
   body #panel #row1 #team2-section {
@@ -369,6 +370,9 @@ body #panel #row1 #team2-section #team2-score-box {
   font-size: var(--font-D);
   text-align: center;
   position: relative;
+}
+body #panel #row1 #team2-section #team2-score-box #arrow2 {
+  top: 50%;
 }
 body #panel #row1 #team2-section #team2-score-box button {
   color: #C70039;
@@ -547,6 +551,9 @@ body #panel #row2 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
+}
+body #panel #row2 #arrow3, body #panel #row2 #arrow4 {
+  top: 50%;
 }
 body #panel #row2 #shot-clock-section, body #panel #row2 #fouls1-section, body #panel #row2 #fouls2-section {
   background-color: transparent;

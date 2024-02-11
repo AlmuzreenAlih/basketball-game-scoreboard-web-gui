@@ -56,6 +56,7 @@
                     <button id="team1-button4">-3</button>
                     <button id="team1-button5">-2</button>
                     <button id="team1-button6">-1</button>
+                    <div id="arrow1" class="handY"><img src="./img/arrow1.png" alt=""></div>
                 </span>
                 <span id="team1-bonus">BONUS</span>
             </section>
@@ -88,6 +89,7 @@
                     <button id="team2-button4">-3</button>
                     <button id="team2-button5">-2</button>
                     <button id="team2-button6">-1</button>
+                    <div id="arrow2" class="handY"><img src="./img/arrow1.png" alt=""></div>
                 </span>
                 <span id="team2-bonus">BONUS</span>
             </section>
@@ -98,6 +100,7 @@
                     <span class="" id="fouls1-value">0</span>
                     <button id="fouls1-button1">+1</button>
                     <button id="fouls1-button2">-1</button>
+                    <div id="arrow3" class="handY"><img src="./img/arrow1.png" alt=""></div>
                 </span>
             </section>
             <section id="shot-clock-section">SHOT CLOCK
@@ -113,6 +116,7 @@
                     <span class="" id="fouls2-value">0</span>
                     <button id="fouls2-button1">+1</button>
                     <button id="fouls2-button2">-1</button>
+                    <div id="arrow4" class="handY"><img src="./img/arrow1.png" alt=""></div>
                 </span>
             </section>
         </div>

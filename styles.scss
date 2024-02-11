@@ -259,7 +259,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 padding: 0px 20px;
-                overflow-x: hidden;
+                // overflow-x: hidden;
 
                 @include mobile {
                     padding: 0px 10px;
@@ -293,6 +293,10 @@ body {
                     font-size: var(--font-D);
                     text-align: center;
                     position: relative;
+
+                    #arrow1 {
+                        top: 50%;
+                    }
 
                     button {
                         color: $outline_color2;
@@ -380,7 +384,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 padding: 0px 20px;
-                overflow-x: hidden;
+                // overflow-x: hidden;
 
                 @include mobile {
                     padding: 0px 10px;
@@ -414,6 +418,10 @@ body {
                     font-size: var(--font-D);
                     text-align: center;
                     position: relative;
+
+                    #arrow2 {
+                        top: 50%;
+                    }
 
                     button {
                         color: $outline_color2;
@@ -587,6 +595,10 @@ body {
                 flex-direction: column;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
+            }
+
+            #arrow3, #arrow4 {
+                top: 50%;
             }
 
             #shot-clock-section,#fouls1-section,#fouls2-section {
