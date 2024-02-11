@@ -100,6 +100,40 @@ html {
     height: 25px;
 }
 
+@keyframes upAndDown {
+    0%, 100% { transform: translateY(0); } /* Start and end position */
+    50% { transform: translateY(-20px); } /* Middle position */
+}
+
+@keyframes upAndDown2 {
+    0%, 100% { transform: translateY(100%); } /* Start and end position */
+    50% { transform: translateY(125%); } /* Middle position */
+}
+
+.handY {
+    position: absolute;
+    animation: upAndDown 2s infinite;
+    height: 40px;
+    img {
+        height: 170px;
+        @include mobile {
+            height: 100px;
+        }
+    }
+}
+
+// .handY2 {
+//     position: absolute;
+//     animation: upAndDown2 2s infinite;
+//     height: 40px;
+//     img {
+//         height: 170px;
+//         @include mobile {
+//             height: 100px;
+//         }
+//     }
+// }
+
 body {
     background: black;
     height: 100vh;
@@ -520,20 +554,9 @@ body {
                     width: 80%;
                     height: 100px;
                 }
-                @keyframes upAndDown {
-                    0%, 100% { transform: translateY(0); } /* Start and end position */
-                    50% { transform: translateY(-20px); } /* Middle position */
-                }
 
                 #hand1 {
-                    position: absolute;
                     top: 50%;
-                    animation: upAndDown 2s infinite;
-                    height: 40px;
-                    img {
-                        height: 170px;
-                    }
-                    // transform: translate(0%,-50%);
                 }
 
                 #position-span {
@@ -597,7 +620,7 @@ body {
                     justify-content: center;
 
                     position: relative;
-
+                    
                     @include mobile {
                         height: 75px;
                         width: 125px;
@@ -628,6 +651,11 @@ body {
                         position: absolute; bottom: 20px; right: 20px;
                         padding:3px;
                     }
+                }
+
+                #hand2 {
+                    top: 60%;
+                    z-index: 100;
                 }
             }
 

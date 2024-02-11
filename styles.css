@@ -66,6 +66,36 @@ html {
   height: 25px;
 }
 
+@keyframes upAndDown {
+  0%, 100% {
+    transform: translateY(0);
+  } /* Start and end position */
+  50% {
+    transform: translateY(-20px);
+  } /* Middle position */
+}
+@keyframes upAndDown2 {
+  0%, 100% {
+    transform: translateY(100%);
+  } /* Start and end position */
+  50% {
+    transform: translateY(125%);
+  } /* Middle position */
+}
+.handY {
+  position: absolute;
+  animation: upAndDown 2s infinite;
+  height: 40px;
+}
+.handY img {
+  height: 170px;
+}
+@media (max-width: 480px) {
+  .handY img {
+    height: 100px;
+  }
+}
+
 body {
   background: black;
   height: 100vh;
@@ -488,22 +518,8 @@ body #panel #row1 #center-section-row1 #quarter-time-box {
   width: 80%;
   height: 100px;
 }
-@keyframes upAndDown {
-  0%, 100% {
-    transform: translateY(0);
-  } /* Start and end position */
-  50% {
-    transform: translateY(-20px);
-  } /* Middle position */
-}
 body #panel #row1 #center-section-row1 #hand1 {
-  position: absolute;
   top: 50%;
-  animation: upAndDown 2s infinite;
-  height: 40px;
-}
-body #panel #row1 #center-section-row1 #hand1 img {
-  height: 170px;
 }
 body #panel #row1 #center-section-row1 #position-span {
   background-color: transparent;
@@ -595,6 +611,10 @@ body #panel #row2 #shot-clock-section #shot-clock-box #fouls2-button2, body #pan
   bottom: 20px;
   right: 20px;
   padding: 3px;
+}
+body #panel #row2 #shot-clock-section #hand2, body #panel #row2 #fouls1-section #hand2, body #panel #row2 #fouls2-section #hand2 {
+  top: 60%;
+  z-index: 100;
 }
 @media (max-width: 480px) {
   body #panel #row2 #shot-clock-section {

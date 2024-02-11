@@ -66,7 +66,7 @@
                 <span id="quarter-time-box">
                     <span class="" id="period-time-value">12:00</span>
                     <button id="reset-button" class="material-symbols-outlined">device_reset</button>
-                    <div id="hand1"><img src="./img/hand.png" alt=""></div>
+                    <div id="hand1" class="handY"><img src="./img/hand.png" alt=""></div>
                 </span>
                 <span id="position-span">
                     <div id="arrow1">◄</div>
@@ -105,6 +105,7 @@
                     <span class="" id="shot-clock-value">0</span>
                     <!-- <button class="material-symbols-outlined play-button2">device_reset</button> -->
                     <button id="reset-button2" class="material-symbols-outlined">device_reset</button>
+                    <div id="hand2" class="handY"><img src="./img/hand.png" alt=""></div>
                 </span>
             </section>
             <section id="fouls2-section">FOULS
