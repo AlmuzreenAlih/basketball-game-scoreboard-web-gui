@@ -16,6 +16,15 @@
         <button id="settings-button">
             <img src="img/settings.png" alt="">
         </button>
+        <div id="tutorials-panel">
+            Press the period to proceed to next period (i.e. 1-4).
+            <br>
+            <section id="tutorial-buttons">
+                <button>CLOSE</button>
+                <button>NEXT</button>
+            </section>
+            
+        </div>
         <div id="settings-panel">
             <section>SETTINGS</section>            
             <section>

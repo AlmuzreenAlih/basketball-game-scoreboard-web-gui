@@ -129,6 +129,27 @@ body #panel #settings-button {
 body #panel #settings-button img {
   height: 45px;
 }
+body #panel #tutorials-panel {
+  background-color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30%;
+  height: 20%;
+  color: black;
+  border: 1px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  padding: 5px;
+  height: auto;
+  padding-bottom: 30px;
+}
+body #panel #tutorials-panel #tutorial-buttons {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
 body #panel #settings-panel {
   background: #111111;
   display: flex;
