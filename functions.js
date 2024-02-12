@@ -33,7 +33,7 @@ function DisplayScoreBoardValues() {
     $("#score2-value").text(retrievedGameData.score2);
     $("#fouls1-value").text(retrievedGameData.fouls1);
     $("#fouls2-value").text(retrievedGameData.fouls2); 
-    $("#period-box").text(retrievedGameData.period); 
+    $("#period-box-value").text(retrievedGameData.period); 
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 }
 
@@ -127,6 +127,14 @@ $(document).ready(function() {
       }, function() {
         console.log("pressed shortly");
       });
+
+      // $("#hand1").hide();
+      // $("#hand2").hide();
+
+      // $("#arrowUp1").hide();
+      // $("#arrowUp2").hide();
+      // $("#arrowUp3").hide();
+      // $("#arrowUp4").hide();
 });
 
 // Define a function to handle clicks outside the settings panel
@@ -366,7 +374,7 @@ $("#period-box").click(function() {
     retrievedGameData.period = 1;
   }
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
-  $("#period-box").text(retrievedGameData.period);
+  $("#period-box-value").text(retrievedGameData.period);
   localStorage.clear();
 })
 $("#settings-panel").hide()

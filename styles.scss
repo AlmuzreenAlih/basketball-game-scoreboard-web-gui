@@ -102,7 +102,7 @@ html {
 
 @keyframes upAndDown {
     0%, 100% { transform: translateY(0); } /* Start and end position */
-    50% { transform: translateY(-20px); } /* Middle position */
+    50% { transform: translateY(10px); } /* Middle position */
 }
 
 @keyframes upAndDown2 {
@@ -113,7 +113,6 @@ html {
 .handY {
     position: absolute;
     animation: upAndDown 2s infinite;
-    height: 40px;
     img {
         height: 170px;
         @include mobile {
@@ -171,6 +170,11 @@ body {
             outline: none;
             img {
                 height: 45px;
+            }
+
+            #arrowUp5 {
+                position: absolute;
+                top: 100%;
             }
         }
 
@@ -324,7 +328,7 @@ body {
                     text-align: center;
                     position: relative;
 
-                    #arrow1 {
+                    #arrowUp1 {
                         top: 50%;
                     }
 
@@ -449,7 +453,7 @@ body {
                     text-align: center;
                     position: relative;
 
-                    #arrow2 {
+                    #arrowUp2 {
                         top: 50%;
                     }
 
@@ -569,6 +573,18 @@ body {
 
                         text-align: center;
                         width: 50px;
+                        position: relative;
+                        #hand1 {
+                            // background-color: white;
+                            z-index: 600;
+                            top: 100%;
+                            left: -53px;
+                            // transform: translate(50%,0);
+
+                            @include mobile {
+                                left: -27px;
+                            }
+                        }
                     }
                 }
 
@@ -593,7 +609,7 @@ body {
                     height: 100px;
                 }
 
-                #hand1 {
+                #hand2 {
                     top: 50%;
                 }
 
@@ -604,12 +620,16 @@ body {
                     justify-content: space-around;
                     width: 100%;
                     font-size: var(--font-B);
-                    
+                    position: relative;
                     div {
                         color: $outline_color2;
                     }
 
                     .hidden {visibility: hidden;}
+
+                    #hand3 {
+                        top: 50%;
+                    }
                 }
             }
         }  
@@ -627,7 +647,7 @@ body {
                 grid-template-rows: 1fr 1fr;
             }
 
-            #arrow3, #arrow4 {
+            #arrowUp3, #arrowUp4 {
                 top: 50%;
             }
 
@@ -695,7 +715,7 @@ body {
                     }
                 }
 
-                #hand2 {
+                #hand4 {
                     top: 60%;
                     z-index: 100;
                 }

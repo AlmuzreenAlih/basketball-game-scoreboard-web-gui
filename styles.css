@@ -71,7 +71,7 @@ html {
     transform: translateY(0);
   } /* Start and end position */
   50% {
-    transform: translateY(-20px);
+    transform: translateY(10px);
   } /* Middle position */
 }
 @keyframes upAndDown2 {
@@ -85,7 +85,6 @@ html {
 .handY {
   position: absolute;
   animation: upAndDown 2s infinite;
-  height: 40px;
 }
 .handY img {
   height: 170px;
@@ -128,6 +127,10 @@ body #panel #settings-button {
 }
 body #panel #settings-button img {
   height: 45px;
+}
+body #panel #settings-button #arrowUp5 {
+  position: absolute;
+  top: 100%;
 }
 body #panel #tutorials-panel {
   background-color: white;
@@ -254,7 +257,7 @@ body #panel #row1 #team1-section #team1-score-box {
   text-align: center;
   position: relative;
 }
-body #panel #row1 #team1-section #team1-score-box #arrow1 {
+body #panel #row1 #team1-section #team1-score-box #arrowUp1 {
   top: 50%;
 }
 body #panel #row1 #team1-section #team1-score-box button {
@@ -392,7 +395,7 @@ body #panel #row1 #team2-section #team2-score-box {
   text-align: center;
   position: relative;
 }
-body #panel #row1 #team2-section #team2-score-box #arrow2 {
+body #panel #row1 #team2-section #team2-score-box #arrowUp2 {
   top: 50%;
 }
 body #panel #row1 #team2-section #team2-score-box button {
@@ -526,6 +529,17 @@ body #panel #row1 #center-section-row1 #period-span #period-box {
   border-radius: 10px;
   text-align: center;
   width: 50px;
+  position: relative;
+}
+body #panel #row1 #center-section-row1 #period-span #period-box #hand1 {
+  z-index: 600;
+  top: 100%;
+  left: -53px;
+}
+@media (max-width: 480px) {
+  body #panel #row1 #center-section-row1 #period-span #period-box #hand1 {
+    left: -27px;
+  }
 }
 body #panel #row1 #center-section-row1 #quarter-time-box {
   display: flex;
@@ -543,7 +557,7 @@ body #panel #row1 #center-section-row1 #quarter-time-box {
   width: 80%;
   height: 100px;
 }
-body #panel #row1 #center-section-row1 #hand1 {
+body #panel #row1 #center-section-row1 #hand2 {
   top: 50%;
 }
 body #panel #row1 #center-section-row1 #position-span {
@@ -553,12 +567,16 @@ body #panel #row1 #center-section-row1 #position-span {
   justify-content: space-around;
   width: 100%;
   font-size: var(--font-B);
+  position: relative;
 }
 body #panel #row1 #center-section-row1 #position-span div {
   color: #C70039;
 }
 body #panel #row1 #center-section-row1 #position-span .hidden {
   visibility: hidden;
+}
+body #panel #row1 #center-section-row1 #position-span #hand3 {
+  top: 50%;
 }
 body #panel #row2 {
   background: linear-gradient(to left, #071952, #651919);
@@ -573,7 +591,7 @@ body #panel #row2 {
     grid-template-rows: 1fr 1fr;
   }
 }
-body #panel #row2 #arrow3, body #panel #row2 #arrow4 {
+body #panel #row2 #arrowUp3, body #panel #row2 #arrowUp4 {
   top: 50%;
 }
 body #panel #row2 #shot-clock-section, body #panel #row2 #fouls1-section, body #panel #row2 #fouls2-section {
@@ -640,7 +658,7 @@ body #panel #row2 #shot-clock-section #shot-clock-box #fouls2-button2, body #pan
   right: 20px;
   padding: 3px;
 }
-body #panel #row2 #shot-clock-section #hand2, body #panel #row2 #fouls1-section #hand2, body #panel #row2 #fouls2-section #hand2 {
+body #panel #row2 #shot-clock-section #hand4, body #panel #row2 #fouls1-section #hand4, body #panel #row2 #fouls2-section #hand4 {
   top: 60%;
   z-index: 100;
 }
