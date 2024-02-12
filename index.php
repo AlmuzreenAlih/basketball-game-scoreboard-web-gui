@@ -15,9 +15,9 @@
     <section id="panel">
         <button id="settings-button">
             <img src="img/settings.png" alt="">
-            <div id="arrowUp5" class="handY"><img src="./img/arrow1.png" alt=""></div>
+            <div id="arrowUp5" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
         </button>
-        <div id="tutorials-panel">
+        <div id="tutorials-panel" class="hidden">
             Press the period to proceed to next period (i.e. 1-4).
             <br>
             <section id="tutorial-buttons">
@@ -26,10 +26,9 @@
             </section>
             
         </div>
-        <div id="settings-panel">
+        <div id="settings-panel" class="hidden">
             <section>SETTINGS</section>            
             <section>
-
                 <input type="checkbox" id="SettingCheckbox1" value="Bike">
                 <label for="SettingCheckbox1"> Synchronize game period time with shot clock time</label><br>
         
@@ -55,6 +54,17 @@
                 <button id="setting-button-apply">Apply</button>
             </section>
         </div>
+        <div id="welcome-panel" class="hidden">
+            <section>Welcome to basketball game scoreboard interface for referees!</section>
+            <section>
+                <input type="checkbox" id="SettingCheckbox1" value="Bike">
+                <label for="SettingCheckbox1"> Do not show again</label><br><br>
+            </section>
+            <section>
+                <button id="welcome-dismiss">Dismiss</button>
+                <button id="welcome-tutorial">Show tutorial</button>
+            </section>
+        </div>
         <div id="row1">
             <section id="team1-section">
                 <span id="team1-name">Team Umar</span>
@@ -66,7 +76,7 @@
                     <button id="team1-button4">-3</button>
                     <button id="team1-button5">-2</button>
                     <button id="team1-button6">-1</button>
-                    <div id="arrowUp1" class="handY"><img src="./img/arrow1.png" alt=""></div>
+                    <div id="arrowUp1" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
                 <span id="team1-bonus">BONUS</span>
             </section>
@@ -74,19 +84,19 @@
                 <span id="period-span">PERIOD
                     <span id="period-box">
                         <p id="period-box-value">1</p>
-                        <div id="hand1" class="handY"><img src="./img/hand.png" alt=""></div>
+                        <div id="hand1" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                     </span>
                 </span>
                 <span id="quarter-time-box">
                     <span class="" id="period-time-value">12:00</span>
                     <button id="reset-button" class="material-symbols-outlined">device_reset</button>
-                    <div id="hand2" class="handY"><img src="./img/hand.png" alt=""></div>
+                    <div id="hand2" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                 </span>
                 <span id="position-span">
                     <div id="arrow1">◄</div>
                     <span>POSS</span>
                     <div id="arrow2" class="hidden">►</div>
-                    <div id="hand3" class="handY"><img src="./img/hand.png" alt=""></div>
+                    <div id="hand3" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                 </span>
                 <!-- <span>
                     <button id="play-button" class="material-symbols-outlined">play_arrow</button>
@@ -103,7 +113,7 @@
                     <button id="team2-button4">-3</button>
                     <button id="team2-button5">-2</button>
                     <button id="team2-button6">-1</button>
-                    <div id="arrowUp2" class="handY"><img src="./img/arrow1.png" alt=""></div>
+                    <div id="arrowUp2" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
                 <span id="team2-bonus">BONUS</span>
             </section>
@@ -114,7 +124,7 @@
                     <span class="" id="fouls1-value">0</span>
                     <button id="fouls1-button1">+1</button>
                     <button id="fouls1-button2">-1</button>
-                    <div id="arrowUp3" class="handY"><img src="./img/arrow1.png" alt=""></div>
+                    <div id="arrowUp3" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
             </section>
             <section id="shot-clock-section">SHOT CLOCK
@@ -122,7 +132,7 @@
                     <span class="" id="shot-clock-value">0</span>
                     <!-- <button class="material-symbols-outlined play-button2">device_reset</button> -->
                     <button id="reset-button2" class="material-symbols-outlined">device_reset</button>
-                    <div id="hand4" class="handY"><img src="./img/hand.png" alt=""></div>
+                    <div id="hand4" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                 </span>
             </section>
             <section id="fouls2-section">FOULS
@@ -130,7 +140,7 @@
                     <span class="" id="fouls2-value">0</span>
                     <button id="fouls2-button1">+1</button>
                     <button id="fouls2-button2">-1</button>
-                    <div id="arrowUp4" class="handY"><img src="./img/arrow1.png" alt=""></div>
+                    <div id="arrowUp4" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
             </section>
         </div>

@@ -95,6 +95,10 @@ html {
   }
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 body {
   background: black;
   height: 100vh;
@@ -152,6 +156,47 @@ body #panel #tutorials-panel #tutorial-buttons {
   position: absolute;
   right: 5px;
   bottom: 5px;
+}
+body #panel #welcome-panel {
+  background: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 10px;
+  width: 75%;
+  z-index: 100;
+  border: 5px solid white;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+body #panel #welcome-panel section:nth-child(1) {
+  padding: 10px;
+  text-align: center;
+  background: transparent;
+  font-size: 40px;
+  width: 100%;
+}
+body #panel #welcome-panel button {
+  font-size: 40px;
+  min-width: 200px;
+  width: 300px;
+  border: 0px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+body #panel #welcome-panel button:nth-child(1) {
+  background-color: #9e9a9b;
+}
+body #panel #welcome-panel button:nth-child(2) {
+  background-color: #36BC20;
 }
 body #panel #settings-panel {
   background: #111111;
@@ -571,9 +616,6 @@ body #panel #row1 #center-section-row1 #position-span {
 }
 body #panel #row1 #center-section-row1 #position-span div {
   color: #C70039;
-}
-body #panel #row1 #center-section-row1 #position-span .hidden {
-  visibility: hidden;
 }
 body #panel #row1 #center-section-row1 #position-span #hand3 {
   top: 50%;

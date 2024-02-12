@@ -128,13 +128,8 @@ $(document).ready(function() {
         console.log("pressed shortly");
       });
 
-      // $("#hand1").hide();
-      // $("#hand2").hide();
-
-      // $("#arrowUp1").hide();
-      // $("#arrowUp2").hide();
-      // $("#arrowUp3").hide();
-      // $("#arrowUp4").hide();
+      // $("#settings-panel").hide()
+      $("#welcome-panel").removeClass("hidden");
 });
 
 // Define a function to handle clicks outside the settings panel
@@ -163,6 +158,18 @@ function enableClickListener() {
 
 disableClickListener();
 //---------------Button Functions ---------------
+function hideAllPointers() {
+  $("#hand1").addClass("hidden");
+  $("#hand2").addClass("hidden");
+  $("#hand3").addClass("hidden");
+  $("#hand4").addClass("hidden");
+
+  $("#arrowUp1").addClass("hidden");
+  $("#arrowUp2").addClass("hidden");
+  $("#arrowUp3").addClass("hidden");
+  $("#arrowUp4").addClass("hidden");
+}
+
 function Team1Button1Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
 function Team1Button2Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
 function Team1Button3Function() {retrievedGameData.score1 = retrievedGameData.score1 + 1; DisplayScoreBoardValues();}
@@ -310,6 +317,11 @@ function SwitchPossesion2() {
 }
 
 //---------------Button Function Links---------------
+$("#welcome-tutorial").click(function() {
+  $("#welcome-panel").hide();
+  $("#tutorials-panel").removeClass("hidden");
+})
+
 $("#team1-button1").click(function() {Team1Button1Function();})
 $("#team1-button2").click(function() {Team1Button2Function();})
 $("#team1-button3").click(function() {Team1Button3Function();})
@@ -377,7 +389,7 @@ $("#period-box").click(function() {
   $("#period-box-value").text(retrievedGameData.period);
   localStorage.clear();
 })
-$("#settings-panel").hide()
+
 $("#settings-button").click(function() {$("#settings-panel").show(); PanelShown = true; setTimeout(enableClickListener,100);})
 $("#setting-button-cancel").click(function() {$("#settings-panel").hide(); setTimeout(enableClickListener,100);})
 $("#setting-button-apply").click(function() {

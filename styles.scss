@@ -121,6 +121,8 @@ html {
     }
 }
 
+.hidden {visibility: hidden;}
+
 // .handY2 {
 //     position: absolute;
 //     animation: upAndDown2 2s infinite;
@@ -205,9 +207,56 @@ body {
                 bottom: 5px;
             }
         }
+        #welcome-panel {
+            background: $theme_color2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
 
+            height: fit-content;
+            padding-bottom: 10px;
+            width: 75%;
+            
+            z-index: 100;
 
+            border: 5px solid white;
+            border-radius: 8px;
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+
+            overflow-y: auto;
+
+            section:nth-child(1) {
+                padding: 10px;
+                text-align: center;
+                background: transparent;
+                font-size: 40px;
+                width: 100%;
+            }
+
+            button {
+                font-size: 40px;
+                min-width: 200px;
+                width: 300px;
+
+                border: 0px solid #888;
+                border-radius: 8px;
+                box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+            }
+
+            button:nth-child(1) {
+                background-color: #9e9a9b;;
+            }
+
+            button:nth-child(2) {
+                background-color: #36BC20;;
+            }
+        }
         #settings-panel {
             background: $theme_color2;
             display: flex;
@@ -624,8 +673,6 @@ body {
                     div {
                         color: $outline_color2;
                     }
-
-                    .hidden {visibility: hidden;}
 
                     #hand3 {
                         top: 50%;
