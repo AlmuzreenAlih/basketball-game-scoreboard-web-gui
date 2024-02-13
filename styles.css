@@ -153,9 +153,19 @@ body #panel #tutorials-panel {
   padding-bottom: 30px;
 }
 body #panel #tutorials-panel #tutorial-buttons {
+  display: flex;
   position: absolute;
   right: 5px;
   bottom: 5px;
+  flex-direction: row;
+}
+@media (max-width: 480px) {
+  body #panel #tutorials-panel #tutorial-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 body #panel #tutorials-panel #tutorial-buttons #tuts-close {
   background-color: #F53649;
@@ -207,6 +217,12 @@ body #panel #welcome-panel button {
   border: 0px solid #888;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 480px) {
+  body #panel #welcome-panel button {
+    font-size: 2rem;
+    width: 200px;
+  }
 }
 body #panel #welcome-panel button:nth-child(1) {
   background-color: #9e9a9b;
