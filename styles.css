@@ -157,6 +157,22 @@ body #panel #tutorials-panel #tutorial-buttons {
   right: 5px;
   bottom: 5px;
 }
+body #panel #tutorials-panel #tutorial-buttons #tuts-close {
+  background-color: #F53649;
+  border: 0px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  width: 60px;
+}
+body #panel #tutorials-panel #tutorial-buttons #tuts-next {
+  background-color: #36BC20;
+  border: 0px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  width: 60px;
+}
 body #panel #welcome-panel {
   background: #111111;
   display: flex;
