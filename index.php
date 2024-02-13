@@ -18,11 +18,11 @@
             <div id="arrowUp5" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
         </button>
         <div id="tutorials-panel" class="hidden">
-            Press the period to proceed to next period (i.e. 1-4).
+            <p id="tutorial-wordings">Press the period to proceed to next period (i.e. 1-4).</p>
             <br>
             <section id="tutorial-buttons">
-                <button>CLOSE</button>
-                <button>NEXT</button>
+                <button id="tuts-close">CLOSE</button>
+                <button id="tuts-next">NEXT</button>
             </section>
             
         </div>

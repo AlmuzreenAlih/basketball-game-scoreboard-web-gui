@@ -317,9 +317,60 @@ function SwitchPossesion2() {
 }
 
 //---------------Button Function Links---------------
+function ChangeTutorialWordings() {
+  if (tuts == 0) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Press the period to proceed to next period (i.e. 1-4).");
+    $("#hand1").removeClass("hidden");
+  } else if (tuts == 1) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Press the game time to start or pause the game time.");
+    $("#hand2").removeClass("hidden");
+  } else if (tuts == 2) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Press the possession to switch the possession.");
+    $("#hand3").removeClass("hidden");
+  } else if (tuts == 3) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Press the shot clock time to start or pause the shot clock time.");
+    $("#hand4").removeClass("hidden");
+  } else if (tuts == 4) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Team scores has add and minus point buttons that you can use to control the score of each team");
+    $("#arrowUp1").removeClass("hidden");
+    $("#arrowUp2").removeClass("hidden");
+  } else if (tuts == 5) {
+    hideAllPointers();
+    $("#tutorial-wordings").text("Also, fouls have add and minus point buttons that you can use to control the number of fouls for each team");
+    $("#arrowUp3").removeClass("hidden");
+    $("#arrowUp4").removeClass("hidden");
+  }
+}
+
 $("#welcome-tutorial").click(function() {
   $("#welcome-panel").hide();
   $("#tutorials-panel").removeClass("hidden");
+  $("#tuts-next").text("NEXT");
+  $("#tuts-close").show();
+  tuts = 0;
+  ChangeTutorialWordings(tuts);
+})
+$("#welcome-dismiss").click(function() {
+  $("#welcome-panel").hide();
+  // $("#tutorials-panel").removeClass("hidden");
+})
+
+$("#tuts-close").click(function() {
+  $("#tutorials-panel").hide();
+})
+let tuts = 0;
+$("#tuts-next").click(function() {
+  tuts++;
+  ChangeTutorialWordings(tuts);
+
+  if (tuts == 5) {$("#tuts-next").text("DONE"); 
+                  $("#tuts-close").hide();}
+  if (tuts == 6) {$("#tutorials-panel").hide(); hideAllPointers();}
 })
 
 $("#team1-button1").click(function() {Team1Button1Function();})
