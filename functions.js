@@ -96,6 +96,9 @@ function myRepeatingFunction() {
         foulSyncShotClock: false,
         goalSyncShotClock: false,
         goalSyncPossession: false,
+
+        DoNotShowWelcomePanelAtStart: false,
+        firstTime: true,
       };
   
       localStorage.setItem('gameData', JSON.stringify(defaultGameData));
@@ -118,6 +121,7 @@ function myRepeatingFunction() {
 $(document).ready(function() {
       InitializeLocalStorage();
       InitializeSettingsPanel();
+
       const intervalId = setInterval(myRepeatingFunction, 100);
       $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
       {
@@ -129,7 +133,11 @@ $(document).ready(function() {
       });
 
       // $("#settings-panel").hide()
-      $("#welcome-panel").removeClass("hidden");
+      if ((!retrievedGameData.DoNotShowWelcomePanelAtStart)) {
+        $("#welcome-panel").removeClass("hidden");
+        $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
+        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+      }
 });
 
 // Define a function to handle clicks outside the settings panel
@@ -348,15 +356,19 @@ function ChangeTutorialWordings() {
 }
 
 $("#welcome-tutorial").click(function() {
-  $("#welcome-panel").hide();
+  $("#welcome-panel").addClass("hidden");
   $("#tutorials-panel").removeClass("hidden");
   $("#tuts-next").text("NEXT");
   $("#tuts-close").show();
   tuts = 0;
   ChangeTutorialWordings(tuts);
+  retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 })
 $("#welcome-dismiss").click(function() {
-  $("#welcome-panel").hide();
+  $("#welcome-panel").addClass("hidden");
+  retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
   // $("#tutorials-panel").removeClass("hidden");
 })
 
@@ -412,6 +424,10 @@ $("#fouls1-button2").click(function() {
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 })
 
+// $('label').click(function() {
+//   alert("label");
+// });
+
 $("#fouls2-button1").click(function() {
   retrievedGameData.fouls2 = retrievedGameData.fouls2 + 1;
   DisplayScoreBoardValues();
@@ -441,8 +457,16 @@ $("#period-box").click(function() {
   localStorage.clear();
 })
 
-$("#settings-button").click(function() {$("#settings-panel").show(); PanelShown = true; setTimeout(enableClickListener,100);})
-$("#setting-button-cancel").click(function() {$("#settings-panel").hide(); setTimeout(enableClickListener,100);})
+$("#settings-button").click(function() {
+  $("#settings-panel").removeClass("hidden"); 
+  $("#settings-panel").show()
+  PanelShown = true; 
+  setTimeout(enableClickListener,100);
+})
+$("#setting-button-cancel").click(function() {
+  $("#settings-panel").hide(); setTimeout(disableClickListener,100);
+})
+
 $("#setting-button-apply").click(function() {
   $("#settings-panel").hide()
   retrievedGameData.gameTimeSyncShotClock = $("#SettingCheckbox1").prop("checked");
@@ -450,7 +474,7 @@ $("#setting-button-apply").click(function() {
   retrievedGameData.goalSyncPossession = $("#SettingCheckbox3").prop("checked");
   retrievedGameData.goalSyncShotClock = $("#SettingCheckbox4").prop("checked");
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
-  setTimeout(enableClickListener,100);
+  setTimeout(disableClickListener,100);
 });
 
 $("#reset-button").click(function() {
@@ -484,6 +508,15 @@ $("#clearer").click(function() {
   localStorage.clear();
   InitializeLocalStorage();
   InitializeSettingsPanel();
+  retrievedGameData.DoNotShowWelcomePanelAtStart = false;
+  hideAllPointers();
+  $("#settings-panel").addClass("hidden");
+  $("#tutorials-panel").addClass("hidden");
+  if ((!retrievedGameData.DoNotShowWelcomePanelAtStart)) {
+    $("#welcome-panel").removeClass("hidden");
+    $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
+    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  }
   alert("cleared");
 
 })
