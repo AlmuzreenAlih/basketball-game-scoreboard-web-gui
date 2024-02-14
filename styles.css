@@ -162,6 +162,7 @@ body #panel #tutorials-panel #tutorial-buttons {
 @media (max-width: 480px) {
   body #panel #tutorials-panel #tutorial-buttons {
     width: 100%;
+    right: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -174,6 +175,7 @@ body #panel #tutorials-panel #tutorial-buttons #tuts-close {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
   padding: 3px;
   width: 60px;
+  margin-bottom: 3px;
 }
 body #panel #tutorials-panel #tutorial-buttons #tuts-next {
   background-color: #36BC20;
@@ -210,7 +212,16 @@ body #panel #welcome-panel section:nth-child(1) {
   font-size: 40px;
   width: 100%;
 }
-body #panel #welcome-panel button {
+body #panel #welcome-panel #welcome-buttons {
+  background-color: transparent;
+  display: flex;
+}
+@media (max-width: 480px) {
+  body #panel #welcome-panel #welcome-buttons {
+    flex-direction: column;
+  }
+}
+body #panel #welcome-panel #welcome-buttons button {
   font-size: 40px;
   min-width: 200px;
   width: 300px;
@@ -219,15 +230,16 @@ body #panel #welcome-panel button {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 480px) {
-  body #panel #welcome-panel button {
+  body #panel #welcome-panel #welcome-buttons button {
     font-size: 2rem;
     width: 200px;
+    margin: 3px;
   }
 }
-body #panel #welcome-panel button:nth-child(1) {
+body #panel #welcome-panel #welcome-buttons button:nth-child(1) {
   background-color: #9e9a9b;
 }
-body #panel #welcome-panel button:nth-child(2) {
+body #panel #welcome-panel #welcome-buttons button:nth-child(2) {
   background-color: #36BC20;
 }
 body #panel #settings-panel {

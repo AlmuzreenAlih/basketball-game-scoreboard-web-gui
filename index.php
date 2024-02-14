@@ -60,7 +60,7 @@
                 <input type="checkbox" id="SettingCheckbox1" value="Bike">
                 <label for="SettingCheckbox1"> Do not show again</label><br><br>
             </section>
-            <section>
+            <section id="welcome-buttons">
                 <button id="welcome-dismiss">Dismiss</button>
                 <button id="welcome-tutorial">Show tutorial</button>
             </section>
