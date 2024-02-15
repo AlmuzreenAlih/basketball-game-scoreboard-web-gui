@@ -48,8 +48,12 @@
             <section>
                 <input type="checkbox" id="SettingCheckbox4" value="Bike">
                 <label for="SettingCheckbox4"> Reset shot clock after a 2pt or 3pt goal is added. </label><br>
-            </section>      
+            </section>   
             <section>
+                <input type="checkbox" id="DoNotShowCheckbox2" value="Bike">
+                <label for="DoNotShowCheckbox2"> Do not show welcome dialog box at start </label><br>
+            </section>      
+            <section id="setting-buttons">
                 <button id="setting-button-cancel">Cancel</button>
                 <button id="setting-button-apply">Apply</button>
             </section>

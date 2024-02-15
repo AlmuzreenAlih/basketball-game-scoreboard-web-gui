@@ -136,6 +136,7 @@ $(document).ready(function() {
       if ((!retrievedGameData.DoNotShowWelcomePanelAtStart)) {
         $("#welcome-panel").removeClass("hidden");
         $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
+        $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
         localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
       }
 });
@@ -284,10 +285,12 @@ function ShotClockValueFunction() {
 }
 
 function InitializeSettingsPanel() {
-  $("#SettingCheckbox1").prop("checked", retrievedGameData.gameTimeSyncShotClock)
-  $("#SettingCheckbox2").prop("checked", retrievedGameData.foulSyncShotClock)
-  $("#SettingCheckbox3").prop("checked", retrievedGameData.goalSyncPossession)
-  $("#SettingCheckbox4").prop("checked", retrievedGameData.goalSyncShotClock)
+  $("#SettingCheckbox1").prop("checked", retrievedGameData.gameTimeSyncShotClock);
+  $("#SettingCheckbox2").prop("checked", retrievedGameData.foulSyncShotClock);
+  $("#SettingCheckbox3").prop("checked", retrievedGameData.goalSyncPossession);
+  $("#SettingCheckbox4").prop("checked", retrievedGameData.goalSyncShotClock);
+  $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);;
+
 }
 
 function Reset2() {
@@ -355,7 +358,7 @@ function ChangeTutorialWordings() {
   }
 }
 
-$("#welcome-tutorial").click(function() {
+function WelcomeTutorialFunction() {
   $("#welcome-panel").addClass("hidden");
   $("#tutorials-panel").removeClass("hidden");
   $("#tuts-next").text("NEXT");
@@ -363,11 +366,17 @@ $("#welcome-tutorial").click(function() {
   tuts = 0;
   ChangeTutorialWordings(tuts);
   retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
+  $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);;
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+}
+
+$("#welcome-tutorial").click(function() {
+  WelcomeTutorialFunction();
 })
 $("#welcome-dismiss").click(function() {
   $("#welcome-panel").addClass("hidden");
   retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
+  $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);;
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
   // $("#tutorials-panel").removeClass("hidden");
 })
@@ -514,7 +523,8 @@ $("#clearer").click(function() {
   $("#tutorials-panel").addClass("hidden");
   if ((!retrievedGameData.DoNotShowWelcomePanelAtStart)) {
     $("#welcome-panel").removeClass("hidden");
-    $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
+    $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);
+    $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
   }
   alert("cleared");
