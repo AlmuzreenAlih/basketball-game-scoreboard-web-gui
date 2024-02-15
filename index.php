@@ -27,32 +27,34 @@
             
         </div>
         <div id="settings-panel" class="hidden">
-            <section>SETTINGS</section>            
-            <section>
-                <input type="checkbox" id="SettingCheckbox1" value="Bike">
-                <label for="SettingCheckbox1"> Synchronize game period time with shot clock time</label><br>
-        
-                <!-- <p>Tips:</p> -->
-                <p>- Only click the game period time, the shot clock will do the same thing.</p>
-                <p>- if there is a foul, press game clock, it will pause both the game clock and shot clock</p>
-            </section>
-            <section>
-                <input type="checkbox" id="SettingCheckbox2" value="Bike">
-                <label for="SettingCheckbox2"> Pause game time and reset shot clock timer when foul is added. </label><br>
-            </section>
-            <section>
-                <input type="checkbox" id="SettingCheckbox3" value="Bike">
-                <label for="SettingCheckbox3"> Switch possesion/sides after a 2pt or 3pt goal is added. </label><br>
-            </section>
+            <div id="the-settings">
+                <section>SETTINGS</section>            
+                <section>
+                    <input type="checkbox" id="SettingCheckbox1" value="Bike">
+                    <label for="SettingCheckbox1"> Synchronize game period time with shot clock time</label><br>
             
-            <section>
-                <input type="checkbox" id="SettingCheckbox4" value="Bike">
-                <label for="SettingCheckbox4"> Reset shot clock after a 2pt or 3pt goal is added. </label><br>
-            </section>   
-            <section>
-                <input type="checkbox" id="DoNotShowCheckbox2" value="Bike">
-                <label for="DoNotShowCheckbox2"> Do not show welcome dialog box at start </label><br>
-            </section>      
+                    <!-- <p>Tips:</p> -->
+                    <p>- Only click the game period time, the shot clock will do the same thing.</p>
+                    <p>- if there is a foul, press game clock, it will pause both the game clock and shot clock</p>
+                </section>
+                <section>
+                    <input type="checkbox" id="SettingCheckbox2" value="Bike">
+                    <label for="SettingCheckbox2"> Pause game time and reset shot clock timer when foul is added. </label><br>
+                </section>
+                <section>
+                    <input type="checkbox" id="SettingCheckbox3" value="Bike">
+                    <label for="SettingCheckbox3"> Switch possesion/sides after a 2pt or 3pt goal is added. </label><br>
+                </section>
+                
+                <section>
+                    <input type="checkbox" id="SettingCheckbox4" value="Bike">
+                    <label for="SettingCheckbox4"> Reset shot clock after a 2pt or 3pt goal is added. </label><br>
+                </section>   
+                <section>
+                    <input type="checkbox" id="DoNotShowCheckbox2" value="Bike">
+                    <label for="DoNotShowCheckbox2"> Do not show welcome dialog box at start </label><br>
+                </section>
+            </div>      
             <section id="setting-buttons">
                 <button id="setting-button-cancel">Cancel</button>
                 <button id="setting-button-apply">Apply</button>
@@ -153,3 +155,10 @@
     <script src="functions.js?x=<?php echo strval(rand())?>"></script>
 </body>
 </html>
+
+<!-- norm = 16
+Desc = 24
+A = 36
+B = 56
+C = 80
+D = 112 -->

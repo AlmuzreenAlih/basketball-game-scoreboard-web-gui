@@ -246,7 +246,7 @@ body #panel #settings-panel {
   background: #111111;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: start;
   position: absolute;
   top: 50%;
@@ -254,36 +254,50 @@ body #panel #settings-panel {
   transform: translate(-50%, -50%);
   height: -moz-fit-content;
   height: fit-content;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   width: 75%;
+  max-height: 80vh;
   z-index: 100;
   border: 5px solid white;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+body #panel #settings-panel #the-settings {
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 5vh;
   overflow-y: auto;
 }
-body #panel #settings-panel section:nth-child(1) {
+@media (max-width: 480px) {
+  body #panel #settings-panel #the-settings {
+    height: 75vh;
+  }
+}
+body #panel #settings-panel #the-settings section:nth-child(1) {
   padding: 10px;
   text-align: center;
   background: transparent;
   font-size: 40px;
   width: 100%;
 }
-body #panel #settings-panel section:not(:first-child) {
+body #panel #settings-panel #the-settings section:not(:first-child) {
   padding: 15px 20px 0px 20px;
   background: transparent;
   font-size: 20px;
   width: 100%;
 }
 body #panel #settings-panel #setting-buttons {
-  background-color: green;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 40%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   align-items: center;
   justify-content: center;
   gap: 30px;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 10px;
 }
 body #panel #settings-panel #setting-buttons button {
   font-size: 20px;
@@ -291,7 +305,6 @@ body #panel #settings-panel #setting-buttons button {
   width: 100px;
   border: 0px solid #888;
   border-radius: 8px;
-  margin: auto;
 }
 body #panel #settings-panel #setting-buttons #setting-button-cancel {
   background: #F53649;
