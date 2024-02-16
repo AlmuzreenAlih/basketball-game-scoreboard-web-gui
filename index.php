@@ -26,6 +26,17 @@
             </section>
             
         </div>
+        <div id="period-time-panel" class="">
+            <section>Manually edit the period time:</section>
+            
+            <section>
+                <select name="minutes-edit" id="minutes-edit">
+                </select> :
+
+                <select name="seconds-edit" id="seconds-edit">
+                </select>
+            </section>
+        </div>
         <div id="settings-panel" class="hidden">
             <div id="the-settings">
                 <section>SETTINGS</section>            

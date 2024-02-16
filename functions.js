@@ -39,42 +39,62 @@ function DisplayScoreBoardValues() {
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 }
 
-function DisplayScoreBoardTimes() {
-    if ((retrievedGameData.periodStarted == 1) || 
-        (retrievedGameData.periodStarted == 1)) {
-        console.log("HAHAHAAHA: ",typeof(retrievedGameData.periodStartTime));
-        // if (typeof(retrievedGameData.periodStartTime)=="string") {
-        //     retrievedGameData.periodStartTime = new Date(retrievedGameData.periodStartTime);
-        // }
-        var displaying = calculateRemainingTime(retrievedGameData.periodTime, retrievedGameData.periodStartTime);
-        $("#period-time-value").text(displaying);
-        retrievedGameData.lastTimeDisplayed = displaying;
-        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+function secondToMMSS(secs) {
+  if (secs < 60) {
+    return new Date(secs*1000).toISOString().substring(17, 19);
+  }
+  return new Date(secs*1000).toISOString().substring(14, 19);
+}
 
+function GetSeconds(secs) {
+  return [new Date(secs*1000).toISOString().substring(14, 16), new Date(secs*1000).toISOString().substring(17, 19)];
+}
+
+var minutesSelect = $('#minutes-edit');
+for (var i = 0; i <= 12; i++) {
+  var paddedValue = i.toString().padStart(2, '0');
+  minutesSelect.append($('<option>', { 
+    value: paddedValue,
+    text : paddedValue 
+  }));
+}
+
+var secondsSelect = $('#seconds-edit');
+for (var i = 0; i <= 59; i++) {
+  var paddedValue = i.toString().padStart(2, '0');
+  secondsSelect.append($('<option>', { 
+    value: paddedValue,
+    text : paddedValue 
+  }));
+}
+
+function DisplayScoreBoardTimes() {
+    if (retrievedGameData.periodStarted == 1) {
+        retrievedGameData.periodTime = retrievedGameData.periodTime - 1;
+        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
       }
-    else if (retrievedGameData.periodStarted == 2) {
-      $("#period-time-value").text(retrievedGameData.lastTimeDisplayed);
-    }
-    else {
-      $("#period-time-value").text("12:00");
-    }
-     
+
     if (retrievedGameData.shotClockStarted == 1) {
-      var displaying = calculateRemainingTime(retrievedGameData.shotClockTime, retrievedGameData.shotClockStartTime, ShowDecimalWhenLessthan60=true);
-      $("#shot-clock-value").text(displaying);
-      retrievedGameData.lastTimeDisplayed2 = displaying;
+      retrievedGameData.shotClockTime = retrievedGameData.shotClockTime - 1; 
+      localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
     }
-    else if (retrievedGameData.shotClockStarted == 2) {
-      $("#shot-clock-value").text(retrievedGameData.lastTimeDisplayed2);
-    }
-    else {
-      $("#shot-clock-value").text("24");
-    }
+
+    var displaying = secondToMMSS(retrievedGameData.periodTime);
+    $("#period-time-value").text(displaying);
+    let ssss, mmm, sss;
+    ssss = GetSeconds(retrievedGameData.periodTime)[0];
+    mmm = ssss[0]; // Assigning value to mmm
+    sss = ssss[1]; // Assigning value to sss
+    console.log(mmm,sss);
+    $("#minutes-edit").val(mmm);
+    $("#seconds-edit").val(sss);
+    var displaying = secondToMMSS(retrievedGameData.shotClockTime);
+    $("#shot-clock-value").text(displaying);
+
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
 }
 function myRepeatingFunction() {
     DisplayScoreBoardTimes();
-    console.log("whut")
   }
 
   function InitializeLocalStorage() {
@@ -126,7 +146,7 @@ $(document).ready(function() {
       InitializeLocalStorage();
       InitializeSettingsPanel();
 
-      const intervalId = setInterval(myRepeatingFunction, 100);
+      const intervalId = setInterval(myRepeatingFunction, 1000);
       $("#period-time-value").longpress(1000, function() //Replace 4000 with your desired milliseconds
       {
         retrievedGameData.periodStarted = -1;
@@ -198,32 +218,21 @@ function Team2Button5Function() {retrievedGameData.score2 = retrievedGameData.sc
 function Team2Button6Function() {retrievedGameData.score2 = retrievedGameData.score2 - 1; if (retrievedGameData.score2 < 0) {retrievedGameData.score2 = 0;} DisplayScoreBoardValues();}
 
 function PeriodStart() {
-  retrievedGameData.periodStartTime = new Date();
   retrievedGameData.periodStarted = 1;
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
-
-  DisplayScoreBoardTimes();
+  // DisplayScoreBoardTimes();
 }
 
 function PeriodPause() {
   retrievedGameData.periodStarted = 2;
-  retrievedGameData.pauseTime = new Date();
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
-
-  DisplayScoreBoardTimes();
+  // DisplayScoreBoardTimes();
 }
 
 function PeriodResume() {
   retrievedGameData.periodStarted = 1;
-  retrievedGameData.resumeTime = new Date();
-  const timeDifference = retrievedGameData.resumeTime - retrievedGameData.pauseTime;
-
-  retrievedGameData.periodStartTime = new Date(retrievedGameData.periodStartTime.getTime() + timeDifference);
-
-  console.log(retrievedGameData.periodStartTime);
   localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
-
-  DisplayScoreBoardTimes();
+  // DisplayScoreBoardTimes();
 }
 
 function PeriodTimeValueFunction() {
@@ -238,7 +247,7 @@ function PeriodTimeValueFunction() {
   }
   else if (retrievedGameData.periodStarted == 2) {
     PeriodResume();
-    if ((retrievedGameData.shotClockStarted == 2) && (retrievedGameData.gameTimeSyncShotClock == true)) {//Option 1
+    if (((retrievedGameData.shotClockStarted==0) || (retrievedGameData.shotClockStarted==2)) && (retrievedGameData.gameTimeSyncShotClock == true)) {//Option 1
       ShotClockResume();
     }
   }

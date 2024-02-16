@@ -257,6 +257,33 @@ body #panel #welcome-panel #welcome-buttons button:nth-child(1) {
 body #panel #welcome-panel #welcome-buttons button:nth-child(2) {
   background-color: #36BC20;
 }
+body #panel #period-time-panel {
+  background: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 10px;
+  width: 75%;
+  z-index: 100;
+  border: 5px solid white;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  font-size: var(--font-B);
+}
+body #panel #period-time-panel section:nth-child(1) {
+  font-size: var(--font-B);
+}
+body #panel #period-time-panel select {
+  font-size: var(--font-B);
+}
 body #panel #settings-panel {
   background: #111111;
   display: flex;
