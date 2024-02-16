@@ -157,7 +157,7 @@ body {
     height: 100vh;
     color: white;
     padding: 30px;
-
+    overflow-y:hidden;
     #panel {
         display: flex;
         flex-direction: column;
@@ -348,6 +348,23 @@ body {
                 font-size: var(--font-B);
             }
 
+            #manual-buttons {
+                button {
+                    width:250px;
+                    font-size: var(--font-A);
+                    border: 1px solid #888;
+                    border-radius: 8px;
+                    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
+                }
+
+                button:nth-child(1) {
+                    background-color: #9e9a9b;;
+                }
+    
+                button:nth-child(2) {
+                    background-color: #36BC20;;
+                }
+            }
         }
         #settings-panel {
             background: $theme_color2;

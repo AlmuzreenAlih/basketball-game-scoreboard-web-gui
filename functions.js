@@ -1,6 +1,7 @@
 var storedData;
 var retrievedGameData;
 var defaultGameData;
+var buzzer = new Audio('buzzer.mp3');
 
 function calculateRemainingTime(allottedTime, startTime,ShowDecimalWhenLessthan60) {
     const currentTime = new Date();
@@ -46,51 +47,54 @@ function secondToMMSS(secs) {
   return new Date(secs*1000).toISOString().substring(14, 19);
 }
 
-function GetSeconds(secs) {
+function GetSecondsAndMinutes(secs) {
   return [new Date(secs*1000).toISOString().substring(14, 16), new Date(secs*1000).toISOString().substring(17, 19)];
 }
 
-var minutesSelect = $('#minutes-edit');
-for (var i = 0; i <= 12; i++) {
-  var paddedValue = i.toString().padStart(2, '0');
-  minutesSelect.append($('<option>', { 
-    value: paddedValue,
-    text : paddedValue 
-  }));
-}
-
-var secondsSelect = $('#seconds-edit');
-for (var i = 0; i <= 59; i++) {
-  var paddedValue = i.toString().padStart(2, '0');
-  secondsSelect.append($('<option>', { 
-    value: paddedValue,
-    text : paddedValue 
-  }));
-}
+var ShownManualEdit = false;
+var Played1 = false;
+var Played2 = false;
 
 function DisplayScoreBoardTimes() {
     if (retrievedGameData.periodStarted == 1) {
-        retrievedGameData.periodTime = retrievedGameData.periodTime - 1;
+        if (retrievedGameData.periodTime > 0) {
+          retrievedGameData.periodTime = retrievedGameData.periodTime - 1;
+          Played1 = false;
+        }
+        else if ((retrievedGameData.periodTime==0) && (!Played1)) {
+          Played1 = true;
+          buzzer.play();
+        }
         localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
       }
 
     if (retrievedGameData.shotClockStarted == 1) {
-      retrievedGameData.shotClockTime = retrievedGameData.shotClockTime - 1; 
+      if (retrievedGameData.shotClockTime > 0) {
+        retrievedGameData.shotClockTime = retrievedGameData.shotClockTime - 1; 
+        Played2 = false;
+      }
+      else if ((retrievedGameData.shotClockTime==0) && (!Played2)) {
+        Played2 = true;
+        buzzer.play();
+      }
       localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
     }
 
     var displaying = secondToMMSS(retrievedGameData.periodTime);
     $("#period-time-value").text(displaying);
-    let ssss, mmm, sss;
-    ssss = GetSeconds(retrievedGameData.periodTime)[0];
-    mmm = ssss[0]; // Assigning value to mmm
-    sss = ssss[1]; // Assigning value to sss
-    console.log(mmm,sss);
-    $("#minutes-edit").val(mmm);
-    $("#seconds-edit").val(sss);
+    
     var displaying = secondToMMSS(retrievedGameData.shotClockTime);
     $("#shot-clock-value").text(displaying);
 
+    if (!ShownManualEdit) { 
+      let ssss, mmm, sss;
+      ssss = GetSecondsAndMinutes(retrievedGameData.periodTime);
+      mmm = ssss[0]; // Assigning value to mmm
+      sss = ssss[1]; // Assigning value to sss
+      console.log(mmm,sss);
+      $("#minutes-edit").val(mmm);
+      $("#seconds-edit").val(sss);
+    }
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
 }
 function myRepeatingFunction() {
@@ -559,3 +563,41 @@ $("#clearer").click(function() {
 
 })
 
+var minutesSelect = $('#minutes-edit');
+for (var i = 0; i <= 12; i++) {
+  var paddedValue = i.toString().padStart(2, '0');
+  minutesSelect.append($('<option>', { 
+    value: paddedValue,
+    text : paddedValue 
+  }));
+}
+
+var secondsSelect = $('#seconds-edit');
+for (var i = 0; i <= 59; i++) {
+  var paddedValue = i.toString().padStart(2, '0');
+  secondsSelect.append($('<option>', { 
+    value: paddedValue,
+    text : paddedValue 
+  }));
+}
+
+$("#edit-button").click(function() {
+  $("#period-time-panel").removeClass("hidden");
+  ShownManualEdit = true;
+})
+
+$("#cancel-manual").click(function() {
+  $("#period-time-panel").addClass("hidden");
+  ShownManualEdit = false;
+})
+
+$("#set-manual").click(function() {
+  let gm = parseInt($("#minutes-edit").val());
+  let gs = parseInt($("#seconds-edit").val());
+  // console.log(fg,fg2);
+  let gts = gm*60 + gs;
+  retrievedGameData.periodTime = gts;
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  $("#period-time-panel").addClass("hidden");
+  ShownManualEdit = false;
+})

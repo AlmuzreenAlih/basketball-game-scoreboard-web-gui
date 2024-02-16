@@ -119,6 +119,7 @@ body {
   height: 100vh;
   color: white;
   padding: 30px;
+  overflow-y: hidden;
 }
 body #panel {
   display: flex;
@@ -283,6 +284,19 @@ body #panel #period-time-panel section:nth-child(1) {
 }
 body #panel #period-time-panel select {
   font-size: var(--font-B);
+}
+body #panel #period-time-panel #manual-buttons button {
+  width: 250px;
+  font-size: var(--font-A);
+  border: 1px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+body #panel #period-time-panel #manual-buttons button:nth-child(1) {
+  background-color: #9e9a9b;
+}
+body #panel #period-time-panel #manual-buttons button:nth-child(2) {
+  background-color: #36BC20;
 }
 body #panel #settings-panel {
   background: #111111;
