@@ -73,7 +73,7 @@
         </div>
         <div id="row1">
             <section id="team1-section">
-                <span id="team1-name">Team Umar</span>
+                <input id="team1-name"></input>
                 <span id="team1-score-box">
                     <span id="score1-value">0</span>
                     <button id="team1-button1">+3</button>
@@ -95,6 +95,7 @@
                 </span>
                 <span id="quarter-time-box">
                     <span class="" id="period-time-value">12:00</span>
+                    <button id="edit-button" class="material-symbols-outlined">edit</button>
                     <button id="reset-button" class="material-symbols-outlined">device_reset</button>
                     <div id="hand2" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                 </span>
@@ -110,7 +111,8 @@
                 </span> -->
             </section>
             <section id="team2-section">
-                <span id="team2-name">Team Mahdi</span>
+                <input id="team2-name"></input>
+                <!-- <span id="team2-name">Team Mahdi</span> -->
                 <span id="team2-score-box">
                     <span id="score2-value">0</span>
                     <button id="team2-button1">+3</button>

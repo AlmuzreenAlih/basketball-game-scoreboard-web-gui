@@ -41,11 +41,26 @@ html {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
+#edit-button {
+  position: absolute;
+  right: 4px;
+  top: 25%;
+  transform: translate(0, -50%);
+  color: black;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 50% solid #888;
+  border-radius: 50%;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
 #reset-button {
   position: absolute;
   right: 4px;
-  top: 50%;
-  transform: translate(0, -50%);
+  bottom: 25%;
+  transform: translate(0, 50%);
   color: black;
   width: 25px;
   height: 25px;
@@ -344,8 +359,13 @@ body #panel #row1 #team1-section #team1-name {
   font-family: sans-serif;
   font-style: italic;
   font-weight: 600;
-  font-size: var(--font-B);
-  letter-spacing: 10px;
+  font-size: var(--font-A);
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 body #panel #row1 #team1-section #team1-score-box {
   background-color: transparent;
@@ -482,8 +502,13 @@ body #panel #row1 #team2-section #team2-name {
   font-family: sans-serif;
   font-style: italic;
   font-weight: 600;
-  font-size: var(--font-B);
-  letter-spacing: 10px;
+  font-size: var(--font-A);
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 body #panel #row1 #team2-section #team2-score-box {
   background-color: transparent;
@@ -736,6 +761,8 @@ body #panel #row2 #shot-clock-section #shot-clock-box button, body #panel #row2 
   font-weight: 600;
   border: 4 solid black;
   border-radius: 50%;
+  width: 22px;
+  height: 22px;
 }
 body #panel #row2 #shot-clock-section #shot-clock-box #fouls1-button1, body #panel #row2 #shot-clock-section #fouls1-box #fouls1-button1, body #panel #row2 #shot-clock-section #fouls2-box #fouls1-button1, body #panel #row2 #fouls1-section #shot-clock-box #fouls1-button1, body #panel #row2 #fouls1-section #fouls1-box #fouls1-button1, body #panel #row2 #fouls1-section #fouls2-box #fouls1-button1, body #panel #row2 #fouls2-section #shot-clock-box #fouls1-button1, body #panel #row2 #fouls2-section #fouls1-box #fouls1-button1, body #panel #row2 #fouls2-section #fouls2-box #fouls1-button1 {
   position: absolute;

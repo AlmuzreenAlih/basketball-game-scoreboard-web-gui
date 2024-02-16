@@ -73,11 +73,28 @@ html {
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
 }
 
+#edit-button {
+    position: absolute;
+    right: 4px;
+    top: 25%;
+    transform: translate(0,-50%);
+    color: black;
+    width: 25px;
+    height: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+    
+    border: 50% solid #888;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
+}
+
 #reset-button {
     position: absolute;
     right: 4px;
-    top: 50%;
-    transform: translate(0,-50%);
+    bottom: 25%;
+    transform: translate(0,50%);
     color: black;
     width: 25px;
     height: 25px;
@@ -411,8 +428,15 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: var(--font-B);
-                    letter-spacing: 10px;
+                    font-size: var(--font-A);
+                    // letter-spacing: 10px;
+
+                    background-color: rgba($color: #FFf, $alpha: 0.5);
+                    width: 100%;
+                    border: 1px solid #888;
+                    border-radius: 8px;
+                    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+                    text-align: center;
                   }
                 #team1-score-box {
                     background-color: transparent;
@@ -536,8 +560,15 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: var(--font-B);
-                    letter-spacing: 10px;
+                    font-size: var(--font-A);
+                    // letter-spacing: 10px;
+
+                    background-color: rgba($color: #FFf, $alpha: 0.5);
+                    width: 100%;
+                    border: 1px solid #888;
+                    border-radius: 8px;
+                    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+                    text-align: center;
                   }
                 #team2-score-box {
                     background-color: transparent;
@@ -798,6 +829,9 @@ body {
                         border: 4 solid black;
                         border-radius: 50%;
 
+                        width: 22px;
+                        height: 22px;
+
                     }
                     #fouls1-button1 {
                         position: absolute; top: 20px; right: 20px;
@@ -815,6 +849,25 @@ body {
                         position: absolute; bottom: 20px; right: 20px;
                         padding:3px;
                     }
+
+                    // @include mobile {
+                    //     #fouls1-button1 {
+                    //         position: absolute; top: 15%; right: 15%;
+                    //         padding:3px;
+                    //     }
+                    //     #fouls1-button2 {
+                    //         position: absolute; bottom: 15%; right: 15%;
+                    //         padding:3px;
+                    //     }
+                    //     #fouls2-button1 {
+                    //         position: absolute; top: 15%; right: 15%;
+                    //         padding:3px;
+                    //     }
+                    //     #fouls2-button2 {
+                    //         position: absolute; bottom: 15%; right: 15%;
+                    //         padding:3px;
+                    //     }
+                    // }
                 }
 
                 #hand4 {

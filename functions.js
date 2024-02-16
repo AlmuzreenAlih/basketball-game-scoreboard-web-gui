@@ -34,6 +34,8 @@ function DisplayScoreBoardValues() {
     $("#fouls1-value").text(retrievedGameData.fouls1);
     $("#fouls2-value").text(retrievedGameData.fouls2); 
     $("#period-box-value").text(retrievedGameData.period); 
+    $("#team1-name").val(retrievedGameData.team1Name);
+    $("#team2-name").val(retrievedGameData.team2Name);
     localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
 }
 
@@ -78,6 +80,8 @@ function myRepeatingFunction() {
   function InitializeLocalStorage() {
     if (!localStorage.getItem('gameData')) {
       defaultGameData = {
+        team1Name: "Team Red",
+        team2Name: "Team Blue",
         score1: 0,
         score2: 0,
         period: 1,
@@ -327,6 +331,21 @@ function SwitchPossesion2() {
   }
 }
 
+$('#team1-name').on('input', function() {
+  // This function will be triggered when the value of the input changes
+  var changedValue = $(this).val(); // Get the new value of the input
+  retrievedGameData.team1Name = changedValue
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  // console.log(changedValue);
+});
+
+$('#team2-name').on('input', function() {
+  // This function will be triggered when the value of the input changes
+  var changedValue = $(this).val(); // Get the new value of the input
+  retrievedGameData.team2Name = changedValue;
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+});
+
 //---------------Button Function Links---------------
 function ChangeTutorialWordings() {
   if (tuts == 0) {
@@ -347,7 +366,7 @@ function ChangeTutorialWordings() {
     $("#hand4").removeClass("hidden");
   } else if (tuts == 4) {
     hideAllPointers();
-    $("#tutorial-wordings").text("Team scores has add and minus point buttons that you can use to control the score of each team");
+    $("#tutorial-wordings").text("Team scores has add and minus point buttons that you can use to control the score of each team. You can also change each team's name.");
     $("#arrowUp1").removeClass("hidden");
     $("#arrowUp2").removeClass("hidden");
   } else if (tuts == 5) {
