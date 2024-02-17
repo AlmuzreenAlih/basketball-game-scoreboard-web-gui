@@ -498,6 +498,7 @@ $("#fouls1-button1").click(function() {
   DisplayScoreBoardValues();
   if (retrievedGameData.foulSyncShotClock) {
     retrievedGameData.shotClockStarted = 0;
+    PeriodPause();
     Reset2();
   }
   SaveToLocal();  
@@ -519,6 +520,7 @@ $("#fouls2-button1").click(function() {
   DisplayScoreBoardValues();
   if (retrievedGameData.foulSyncShotClock) {
     retrievedGameData.shotClockStarted = 0;
+    PeriodPause();
     Reset2();
   }
   SaveToLocal();  

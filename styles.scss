@@ -9,7 +9,7 @@
                                                 
 
 }
-$mobile_size: 480px;
+$mobile_size: 1000px;
 $mobile_factor: 1;
 @mixin mobile {
     @media (max-width: $mobile_size) {
@@ -30,10 +30,10 @@ $mobile_factor: 1;
     :root {
         --font-normal: 1rem; 
         --font-Desc: 1.5rem;
-        --font-A: 1rem; 
-        --font-B: 2rem;
-        --font-C: 3rem; 
-        --font-D: 4rem;
+        --font-A: 2rem; 
+        --font-B: 3rem;
+        --font-C: 4rem; 
+        --font-D: 5rem;
     }  
 }
 
@@ -85,7 +85,7 @@ html {
     width: 25px;
     height: 25px;
 
-    font-size: 14px;
+    font-size: var(--font-normal);
     font-weight: bold;
     
     border: 50% solid #888;
@@ -102,7 +102,7 @@ html {
     width: 25px;
     height: 25px;
 
-    font-size: 14px;
+    font-size: var(--font-normal);
     font-weight: bold;
     
     border: 50% solid #888;
@@ -221,7 +221,7 @@ body {
             top: 20px;
             left: 20px;
 
-            width:30%;
+            width:35%;
             height: 20%;
 
             color: black;
@@ -233,13 +233,15 @@ body {
 
             padding: 5px;
             height:auto;
-            padding-bottom: 30px;
+            padding-bottom: 60px;
+            font-size: var(--font-Desc);
             #tutorial-buttons {
                 display: flex;
                 position: absolute;
                 right:5px;
                 bottom: 5px;
                 flex-direction: row;
+                
                 @include mobile {
                     // background-color: blue;
                     width: 100%; right:0px;
@@ -247,22 +249,21 @@ body {
                     align-items: center;
                     justify-content: center;
                 }
-                #tuts-close {
-                    background-color: #F53649;
-
+                button {
+                    font-size: var(--font-Desc);
+                    width: 100px;
                     border: 0px solid #888;
                     border-radius: 8px;
                     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
-                    padding: 3px; width: 60px;
-                    margin-bottom: 3px;
+                    padding: 3px;
+                    margin: 5px;
+                }
+
+                #tuts-close {
+                    background-color: #F53649;
                 }
                 #tuts-next {
                     background-color: #36BC20;
-
-                    border: 0px solid #888;
-                    border-radius: 8px;
-                    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
-                    padding: 3px; width: 60px;
                     ;}
             }
         }
@@ -292,7 +293,7 @@ body {
                 padding: 10px;
                 text-align: center;
                 background: transparent;
-                font-size: 40px;
+                font-size: var(--font-B);
                 width: 100%;
             }
 
@@ -305,12 +306,12 @@ body {
                 }
 
                 button {
-                    font-size: 40px;
+                    font-size: var(--font-A);;
                     min-width: 200px;
                     width: 300px;
                     
                     @include mobile {
-                        font-size: 2rem;
+                        font-size: var(--font-A);;
                         width: 200px;
                         margin: 3px;
                     }
@@ -353,7 +354,7 @@ body {
             font-size: var(--font-B);
 
             section:nth-child(1) {
-                font-size: var(--font-B);
+                font-size: var(--font-A);
             }   
 
             select {
@@ -411,14 +412,14 @@ body {
                     padding: 10px;
                     text-align: center;
                     background: transparent;
-                    font-size: 40px;
+                    font-size: var(--font-A);
                     width: 100%;
                 }
                 section:not(:first-child) {
-                    padding: 15px 20px 0px 20px;
+                    padding: 0px 20px 15px 20px;
                 
                     background: transparent;
-                    font-size: 20px;
+                    font-size: var(--font-Desc);;
                     width: 100%;
                 }
             }
@@ -436,7 +437,7 @@ body {
                 bottom: 0;
                 padding-bottom: 10px;
                 button {
-                    font-size: 20px;
+                    font-size: var(--font-Desc);;
                     height: 30px;
                     width: 100px;
                     border: 0px solid #888;
@@ -490,7 +491,7 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: var(--font-A);
+                    font-size: var(--font-Desc);
                     // letter-spacing: 10px;
 
                     background-color: rgba($color: #FFf, $alpha: 0.5);
@@ -596,7 +597,6 @@ body {
                     width: 100%;
                     font-family: sans-serif;
                     font-size: var(--font-A);
-                    font-size: 1.8rem;
                     text-align: end;
 
                   }
@@ -622,7 +622,7 @@ body {
                     font-family: sans-serif;
                     font-style: italic;
                     font-weight: 600;
-                    font-size: var(--font-A);
+                    font-size: var(--font-Desc);
                     // letter-spacing: 10px;
 
                     background-color: rgba($color: #FFf, $alpha: 0.5);
@@ -728,7 +728,6 @@ body {
                     width: 100%;
                     font-family: sans-serif;
                     font-size: var(--font-A);
-                    font-size: 1.8rem;
                     text-align: end;
 
                   }

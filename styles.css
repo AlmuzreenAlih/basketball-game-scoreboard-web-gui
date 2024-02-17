@@ -20,10 +20,10 @@
   :root {
     --font-normal: 1rem;
     --font-Desc: 1.5rem;
-    --font-A: 1rem;
-    --font-B: 2rem;
-    --font-C: 3rem;
-    --font-D: 4rem;
+    --font-A: 2rem;
+    --font-B: 3rem;
+    --font-C: 4rem;
+    --font-D: 5rem;
   }
 }
 html {
@@ -49,7 +49,7 @@ html {
   color: black;
   width: 25px;
   height: 25px;
-  font-size: 14px;
+  font-size: var(--font-normal);
   font-weight: bold;
   border: 50% solid #888;
   border-radius: 50%;
@@ -64,7 +64,7 @@ html {
   color: black;
   width: 25px;
   height: 25px;
-  font-size: 14px;
+  font-size: var(--font-normal);
   font-weight: bold;
   border: 50% solid #888;
   border-radius: 50%;
@@ -105,7 +105,7 @@ html {
 .handY img {
   height: 170px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   .handY img {
     height: 100px;
   }
@@ -170,7 +170,7 @@ body #panel #tutorials-panel {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 30%;
+  width: 35%;
   height: 20%;
   color: black;
   border: 1px solid #888;
@@ -178,7 +178,8 @@ body #panel #tutorials-panel {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
   padding: 5px;
   height: auto;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
+  font-size: var(--font-Desc);
 }
 body #panel #tutorials-panel #tutorial-buttons {
   display: flex;
@@ -187,7 +188,7 @@ body #panel #tutorials-panel #tutorial-buttons {
   bottom: 5px;
   flex-direction: row;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #tutorials-panel #tutorial-buttons {
     width: 100%;
     right: 0px;
@@ -196,22 +197,20 @@ body #panel #tutorials-panel #tutorial-buttons {
     justify-content: center;
   }
 }
-body #panel #tutorials-panel #tutorial-buttons #tuts-close {
-  background-color: #F53649;
+body #panel #tutorials-panel #tutorial-buttons button {
+  font-size: var(--font-Desc);
+  width: 100px;
   border: 0px solid #888;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
   padding: 3px;
-  width: 60px;
-  margin-bottom: 3px;
+  margin: 5px;
+}
+body #panel #tutorials-panel #tutorial-buttons #tuts-close {
+  background-color: #F53649;
 }
 body #panel #tutorials-panel #tutorial-buttons #tuts-next {
   background-color: #36BC20;
-  border: 0px solid #888;
-  border-radius: 8px;
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
-  padding: 3px;
-  width: 60px;
 }
 body #panel #welcome-panel {
   background: #111111;
@@ -236,29 +235,29 @@ body #panel #welcome-panel section:nth-child(1) {
   padding: 10px;
   text-align: center;
   background: transparent;
-  font-size: 40px;
+  font-size: var(--font-B);
   width: 100%;
 }
 body #panel #welcome-panel #welcome-buttons {
   background-color: transparent;
   display: flex;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #welcome-panel #welcome-buttons {
     flex-direction: column;
   }
 }
 body #panel #welcome-panel #welcome-buttons button {
-  font-size: 40px;
+  font-size: var(--font-A);
   min-width: 200px;
   width: 300px;
   border: 0px solid #888;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #welcome-panel #welcome-buttons button {
-    font-size: 2rem;
+    font-size: var(--font-A);
     width: 200px;
     margin: 3px;
   }
@@ -290,7 +289,7 @@ body #panel #period-time-panel {
   font-size: var(--font-B);
 }
 body #panel #period-time-panel section:nth-child(1) {
-  font-size: var(--font-B);
+  font-size: var(--font-A);
 }
 body #panel #period-time-panel select {
   font-size: var(--font-B);
@@ -333,7 +332,7 @@ body #panel #settings-panel #the-settings {
   margin-bottom: 5vh;
   overflow-y: auto;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #settings-panel #the-settings {
     height: 75vh;
   }
@@ -342,13 +341,13 @@ body #panel #settings-panel #the-settings section:nth-child(1) {
   padding: 10px;
   text-align: center;
   background: transparent;
-  font-size: 40px;
+  font-size: var(--font-A);
   width: 100%;
 }
 body #panel #settings-panel #the-settings section:not(:first-child) {
-  padding: 15px 20px 0px 20px;
+  padding: 0px 20px 15px 20px;
   background: transparent;
-  font-size: 20px;
+  font-size: var(--font-Desc);
   width: 100%;
 }
 body #panel #settings-panel #setting-buttons {
@@ -365,7 +364,7 @@ body #panel #settings-panel #setting-buttons {
   padding-bottom: 10px;
 }
 body #panel #settings-panel #setting-buttons button {
-  font-size: 20px;
+  font-size: var(--font-Desc);
   height: 30px;
   width: 100px;
   border: 0px solid #888;
@@ -383,7 +382,7 @@ body #panel #row1 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 {
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
@@ -397,7 +396,7 @@ body #panel #row1 #team1-section {
   justify-content: center;
   padding: 0px 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #team1-section {
     padding: 0px 10px;
   }
@@ -409,7 +408,7 @@ body #panel #row1 #team1-section #team1-name {
   font-family: sans-serif;
   font-style: italic;
   font-weight: 600;
-  font-size: var(--font-A);
+  font-size: var(--font-Desc);
   background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   border: 1px solid #888;
@@ -477,7 +476,7 @@ body #panel #row1 #team1-section #team1-score-box #team1-button6 {
   bottom: 10px;
   left: 10px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #team1-section #team1-score-box {
     min-height: 75px;
   }
@@ -530,7 +529,6 @@ body #panel #row1 #team1-section #team1-bonus {
   width: 100%;
   font-family: sans-serif;
   font-size: var(--font-A);
-  font-size: 1.8rem;
   text-align: end;
 }
 body #panel #row1 #team2-section {
@@ -540,7 +538,7 @@ body #panel #row1 #team2-section {
   justify-content: center;
   padding: 0px 20px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #team2-section {
     padding: 0px 10px;
   }
@@ -552,7 +550,7 @@ body #panel #row1 #team2-section #team2-name {
   font-family: sans-serif;
   font-style: italic;
   font-weight: 600;
-  font-size: var(--font-A);
+  font-size: var(--font-Desc);
   background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   border: 1px solid #888;
@@ -620,7 +618,7 @@ body #panel #row1 #team2-section #team2-score-box #team2-button6 {
   bottom: 10px;
   left: 10px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #team2-section #team2-score-box {
     min-height: 75px;
   }
@@ -673,7 +671,6 @@ body #panel #row1 #team2-section #team2-bonus {
   width: 100%;
   font-family: sans-serif;
   font-size: var(--font-A);
-  font-size: 1.8rem;
   text-align: end;
 }
 body #panel #row1 #center-section-row1 {
@@ -683,7 +680,7 @@ body #panel #row1 #center-section-row1 {
   align-items: center;
   justify-content: start;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #center-section-row1 {
     order: -1;
     grid-column: span 2;
@@ -716,7 +713,7 @@ body #panel #row1 #center-section-row1 #period-span #period-box #hand1 {
   top: 100%;
   left: -53px;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row1 #center-section-row1 #period-span #period-box #hand1 {
     left: -27px;
   }
@@ -761,7 +758,7 @@ body #panel #row2 {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row2 {
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
@@ -797,7 +794,7 @@ body #panel #row2 #shot-clock-section #shot-clock-box, body #panel #row2 #shot-c
   justify-content: center;
   position: relative;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row2 #shot-clock-section #shot-clock-box, body #panel #row2 #shot-clock-section #fouls1-box, body #panel #row2 #shot-clock-section #fouls2-box, body #panel #row2 #fouls1-section #shot-clock-box, body #panel #row2 #fouls1-section #fouls1-box, body #panel #row2 #fouls1-section #fouls2-box, body #panel #row2 #fouls2-section #shot-clock-box, body #panel #row2 #fouls2-section #fouls1-box, body #panel #row2 #fouls2-section #fouls2-box {
     height: 75px;
     width: 125px;
@@ -840,7 +837,7 @@ body #panel #row2 #shot-clock-section #shot-clock-box #fouls2-button2, body #pan
 body #panel #row2 #shot-clock-section #hand4, body #panel #row2 #fouls1-section #hand4, body #panel #row2 #fouls2-section #hand4 {
   top: 60%;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   body #panel #row2 #shot-clock-section {
     order: -1;
     grid-column: span 2;
