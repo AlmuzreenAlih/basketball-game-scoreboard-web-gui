@@ -17,7 +17,7 @@
             <img src="img/settings.png" alt="">
             <div id="arrowUp5" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
         </button>
-        <div id="tutorials-panel" class="hidden">
+        <div id="tutorials-panel" class="hidden panels">
             <p id="tutorial-wordings">Press the period to proceed to next period (i.e. 1-4).</p>
             <br>
             <section id="tutorial-buttons">
@@ -26,7 +26,7 @@
             </section>
             
         </div>
-        <div id="period-time-panel" class="hidden   ">
+        <div id="period-time-panel" class="hidden panels">
             <section>Manually edit the period time:</section>
             
             <section>
@@ -41,7 +41,7 @@
                 <button id="set-manual">SET</button>
             </section>
         </div>
-        <div id="settings-panel" class="hidden">
+        <div id="settings-panel" class="hidden panels">
             <div id="the-settings">
                 <section>SETTINGS</section>            
                 <section>
@@ -75,7 +75,7 @@
                 <button id="setting-button-apply">Apply</button>
             </section>
         </div>
-        <div id="welcome-panel" class="hidden">
+        <div id="welcome-panel" class="hidden panels">
             <section>Welcome to basketball game scoreboard interface for referees!</section>
             <section>
                 <input type="checkbox" id="DoNotShowCheckbox" value="Bike">
@@ -99,7 +99,7 @@
                     <button id="team1-button6">-1</button>
                     <div id="arrowUp1" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
-                <span id="team1-bonus">BONUS</span>
+                <span id="team1-bonus" class="off bonux">BONUS</span>
             </section>
             <section id="center-section-row1">
                 <span id="period-span">PERIOD
@@ -116,7 +116,7 @@
                 </span>
                 <span id="position-span">
                     <div id="arrow1">◄</div>
-                    <span>POSS</span>
+                    <span>POSSESSION</span>
                     <div id="arrow2" class="hidden">►</div>
                     <div id="hand3" class="handY hidden"><img src="./img/hand.png" alt=""></div>
                 </span>
@@ -138,7 +138,7 @@
                     <button id="team2-button6">-1</button>
                     <div id="arrowUp2" class="handY hidden"><img src="./img/arrow1.png" alt=""></div>
                 </span>
-                <span id="team2-bonus">BONUS</span>
+                <span id="team2-bonus" class="off">BONUS</span>
             </section>
         </div>
         <div id="row2">
@@ -168,7 +168,7 @@
             </section>
         </div>
     </section>
-    <button id="clearer">Clear</button>
+    <!-- <button id="clearer">Clear</button> -->
     <script src="functions.js?x=<?php echo strval(rand())?>"></script>
 </body>
 </html>
@@ -179,3 +179,4 @@ A = 36
 B = 56
 C = 80
 D = 112 -->
+

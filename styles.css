@@ -98,6 +98,7 @@ html {
   } /* Middle position */
 }
 .handY {
+  z-index: 200;
   position: absolute;
   animation: upAndDown 2s infinite;
 }
@@ -110,8 +111,20 @@ html {
   }
 }
 
+.panels {
+  z-index: 300;
+}
+
 .hidden {
   visibility: hidden;
+}
+
+.bonux {
+  color: white;
+}
+
+.off {
+  color: rgb(40, 30, 30);
 }
 
 body {
@@ -163,7 +176,6 @@ body #panel #tutorials-panel {
   border: 1px solid #888;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
-  z-index: 200;
   padding: 5px;
   height: auto;
   padding-bottom: 30px;
@@ -215,7 +227,6 @@ body #panel #welcome-panel {
   height: fit-content;
   padding-bottom: 10px;
   width: 75%;
-  z-index: 100;
   border: 5px solid white;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
@@ -272,7 +283,6 @@ body #panel #period-time-panel {
   height: fit-content;
   padding-bottom: 10px;
   width: 75%;
-  z-index: 100;
   border: 5px solid white;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
@@ -313,7 +323,6 @@ body #panel #settings-panel {
   padding-bottom: 15px;
   width: 75%;
   max-height: 80vh;
-  z-index: 100;
   border: 5px solid white;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
@@ -704,7 +713,6 @@ body #panel #row1 #center-section-row1 #period-span #period-box {
   position: relative;
 }
 body #panel #row1 #center-section-row1 #period-span #period-box #hand1 {
-  z-index: 600;
   top: 100%;
   left: -53px;
 }
@@ -831,7 +839,6 @@ body #panel #row2 #shot-clock-section #shot-clock-box #fouls2-button2, body #pan
 }
 body #panel #row2 #shot-clock-section #hand4, body #panel #row2 #fouls1-section #hand4, body #panel #row2 #fouls2-section #hand4 {
   top: 60%;
-  z-index: 100;
 }
 @media (max-width: 480px) {
   body #panel #row2 #shot-clock-section {

@@ -28,6 +28,10 @@ function calculateRemainingTime(allottedTime, startTime,ShowDecimalWhenLessthan6
     }
   }  
 
+function SaveToLocal() {
+  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+}
+
 //---------------REPEATING FUNCTIONS---------------
 function DisplayScoreBoardValues() {
     $("#score1-value").text(retrievedGameData.score1);
@@ -37,7 +41,27 @@ function DisplayScoreBoardValues() {
     $("#period-box-value").text(retrievedGameData.period); 
     $("#team1-name").val(retrievedGameData.team1Name);
     $("#team2-name").val(retrievedGameData.team2Name);
-    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+    if (retrievedGameData.bonus1) {
+      $("#team1-bonus").removeClass("off");
+    } else {
+      $("#team1-bonus").addClass("off");
+    }
+  
+    if (retrievedGameData.bonus2) {
+      $("#team2-bonus").removeClass("off");
+    } else {
+      $("#team2-bonus").addClass("off");
+    }
+    // alert(retrievedGameData.possession);
+    if (retrievedGameData.possession == 1) {
+      $("#arrow2").addClass("hidden");
+      $("#arrow1").removeClass("hidden");
+    }
+    else {
+      $("#arrow1").addClass("hidden");
+      $("#arrow2").removeClass("hidden");
+    }
+    SaveToLocal();  
 }
 
 function secondToMMSS(secs) {
@@ -65,7 +89,7 @@ function DisplayScoreBoardTimes() {
           Played1 = true;
           buzzer.play();
         }
-        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+        SaveToLocal();  
       }
 
     if (retrievedGameData.shotClockStarted == 1) {
@@ -77,7 +101,7 @@ function DisplayScoreBoardTimes() {
         Played2 = true;
         buzzer.play();
       }
-      localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+      SaveToLocal();  
     }
 
     var displaying = secondToMMSS(retrievedGameData.periodTime);
@@ -95,7 +119,7 @@ function DisplayScoreBoardTimes() {
       $("#minutes-edit").val(mmm);
       $("#seconds-edit").val(sss);
     }
-    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+    SaveToLocal();
 }
 function myRepeatingFunction() {
     DisplayScoreBoardTimes();
@@ -108,6 +132,8 @@ function myRepeatingFunction() {
         team2Name: "Team Blue",
         score1: 0,
         score2: 0,
+        bonus1: false,
+        bonus2: false,
         period: 1,
         periodTime: 12*60,   
         periodStarted: 0,
@@ -155,7 +181,7 @@ $(document).ready(function() {
       {
         retrievedGameData.periodStarted = -1;
         console.log("pressed longly");
-        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+        SaveToLocal();  
       }, function() {
         console.log("pressed shortly");
       });
@@ -165,7 +191,7 @@ $(document).ready(function() {
         $("#welcome-panel").removeClass("hidden");
         $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
         $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart)
-        localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+        SaveToLocal();  
       }
 });
 
@@ -207,15 +233,15 @@ function hideAllPointers() {
   $("#arrowUp4").addClass("hidden");
 }
 
-function Team1Button1Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
-function Team1Button2Function() {SwitchPossesion2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
+function Team1Button1Function() {CheckPoss2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 3; DisplayScoreBoardValues();}
+function Team1Button2Function() {CheckPoss2(); ResetShotClock(); retrievedGameData.score1 = retrievedGameData.score1 + 2; DisplayScoreBoardValues();}
 function Team1Button3Function() {retrievedGameData.score1 = retrievedGameData.score1 + 1; DisplayScoreBoardValues();}
 function Team1Button4Function() {retrievedGameData.score1 = retrievedGameData.score1 - 3; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 function Team1Button5Function() {retrievedGameData.score1 = retrievedGameData.score1 - 2; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 function Team1Button6Function() {retrievedGameData.score1 = retrievedGameData.score1 - 1; if (retrievedGameData.score1 < 0) {retrievedGameData.score1 = 0;} DisplayScoreBoardValues();}
 
-function Team2Button1Function() {SwitchPossesion1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 3; DisplayScoreBoardValues();}
-function Team2Button2Function() {SwitchPossesion1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 2; DisplayScoreBoardValues();}
+function Team2Button1Function() {CheckPoss1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 3; DisplayScoreBoardValues();}
+function Team2Button2Function() {CheckPoss1(); ResetShotClock(); retrievedGameData.score2 = retrievedGameData.score2 + 2; DisplayScoreBoardValues();}
 function Team2Button3Function() {retrievedGameData.score2 = retrievedGameData.score2 + 1; DisplayScoreBoardValues();}
 function Team2Button4Function() {retrievedGameData.score2 = retrievedGameData.score2 - 3; if (retrievedGameData.score2 < 0) {retrievedGameData.score2 = 0;} DisplayScoreBoardValues();}
 function Team2Button5Function() {retrievedGameData.score2 = retrievedGameData.score2 - 2; if (retrievedGameData.score2 < 0) {retrievedGameData.score2 = 0;} DisplayScoreBoardValues();}
@@ -223,19 +249,19 @@ function Team2Button6Function() {retrievedGameData.score2 = retrievedGameData.sc
 
 function PeriodStart() {
   retrievedGameData.periodStarted = 1;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   // DisplayScoreBoardTimes();
 }
 
 function PeriodPause() {
   retrievedGameData.periodStarted = 2;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   // DisplayScoreBoardTimes();
 }
 
 function PeriodResume() {
   retrievedGameData.periodStarted = 1;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   // DisplayScoreBoardTimes();
 }
 
@@ -267,7 +293,7 @@ function PeriodTimeValueFunction() {
 function ShotClockStart() {
   retrievedGameData.shotClockStartTime = new Date();
   retrievedGameData.shotClockStarted = 1;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  SaveToLocal();
 
   DisplayScoreBoardTimes();
 }
@@ -275,7 +301,7 @@ function ShotClockStart() {
 function ShotClockPause() {
   retrievedGameData.shotClockStarted = 2;
   retrievedGameData.pauseTime2 = new Date();
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 
   DisplayScoreBoardTimes();
 }
@@ -287,7 +313,7 @@ function ShotClockResume() {
 
   retrievedGameData.shotClockStartTime = new Date(retrievedGameData.shotClockStartTime.getTime() + timeDifference);
 
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  SaveToLocal();
 
   DisplayScoreBoardTimes();
 }
@@ -321,7 +347,7 @@ function Reset2() {
     retrievedGameData.shotClockStartTime = new Date();
   }
 
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  SaveToLocal();
 }
 
 function ResetShotClock() {
@@ -331,16 +357,28 @@ function ResetShotClock() {
 }
 
 function SwitchPossesion1() {
-  if (retrievedGameData.goalSyncPossession) {
-    $("#arrow2").addClass("hidden");
-    $("#arrow1").removeClass("hidden");
-  }
+  retrievedGameData.possession = 1;
+  $("#arrow2").addClass("hidden");
+  $("#arrow1").removeClass("hidden");
+  SaveToLocal();
 }
 
 function SwitchPossesion2() {
+  retrievedGameData.possession = 2;
+  $("#arrow1").addClass("hidden");
+  $("#arrow2").removeClass("hidden");
+  SaveToLocal();
+}
+
+function CheckPoss1() {
   if (retrievedGameData.goalSyncPossession) {
-    $("#arrow1").addClass("hidden");
-    $("#arrow2").removeClass("hidden");
+    SwitchPossesion1();
+  }
+}
+
+function CheckPoss2() {
+  if (retrievedGameData.goalSyncPossession) { 
+    SwitchPossesion2();
   }
 }
 
@@ -348,7 +386,7 @@ $('#team1-name').on('input', function() {
   // This function will be triggered when the value of the input changes
   var changedValue = $(this).val(); // Get the new value of the input
   retrievedGameData.team1Name = changedValue
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   // console.log(changedValue);
 });
 
@@ -356,7 +394,7 @@ $('#team2-name').on('input', function() {
   // This function will be triggered when the value of the input changes
   var changedValue = $(this).val(); // Get the new value of the input
   retrievedGameData.team2Name = changedValue;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 });
 
 //---------------Button Function Links---------------
@@ -379,7 +417,7 @@ function ChangeTutorialWordings() {
     $("#hand4").removeClass("hidden");
   } else if (tuts == 4) {
     hideAllPointers();
-    $("#tutorial-wordings").text("Team scores has add and minus point buttons that you can use to control the score of each team. You can also change each team's name.");
+    $("#tutorial-wordings").text("Team scores has add and minus point buttons that you can use to control the score of each team. \nYou can also change each team's name.");
     $("#arrowUp1").removeClass("hidden");
     $("#arrowUp2").removeClass("hidden");
   } else if (tuts == 5) {
@@ -399,7 +437,7 @@ function WelcomeTutorialFunction() {
   ChangeTutorialWordings(tuts);
   retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
   $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 }
 
 $("#welcome-tutorial").click(function() {
@@ -409,12 +447,13 @@ $("#welcome-dismiss").click(function() {
   $("#welcome-panel").addClass("hidden");
   retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox").prop("checked");
   $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   // $("#tutorials-panel").removeClass("hidden");
 })
 
 $("#tuts-close").click(function() {
   $("#tutorials-panel").hide();
+  hideAllPointers();
 })
 let tuts = 0;
 $("#tuts-next").click(function() {
@@ -444,6 +483,12 @@ $("#period-time-value").click(function() {PeriodTimeValueFunction();});
 $('#shot-clock-value').click(function() {ShotClockValueFunction();})
 
 $("#position-span").click(function() {
+  if (retrievedGameData.possession == 1) {
+    retrievedGameData.possession = 2;
+  } else {
+    retrievedGameData.possession = 1;
+  }
+
   $("#arrow1").toggleClass("hidden");
   $("#arrow2").toggleClass("hidden");
 })
@@ -455,14 +500,14 @@ $("#fouls1-button1").click(function() {
     retrievedGameData.shotClockStarted = 0;
     Reset2();
   }
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 })
 $("#fouls1-button2").click(function() {
   if (retrievedGameData.fouls1 > 0) {
     retrievedGameData.fouls1 = retrievedGameData.fouls1 - 1;
   }
   DisplayScoreBoardValues();
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 })
 
 // $('label').click(function() {
@@ -476,14 +521,14 @@ $("#fouls2-button1").click(function() {
     retrievedGameData.shotClockStarted = 0;
     Reset2();
   }
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 })
 $("#fouls2-button2").click(function() {
   if (retrievedGameData.fouls2 > 0) {
     retrievedGameData.fouls2 = retrievedGameData.fouls2 - 1;
   }
   DisplayScoreBoardValues();
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
 })
 
 $("#period-box").click(function() {
@@ -493,7 +538,7 @@ $("#period-box").click(function() {
   else {
     retrievedGameData.period = 1;
   }
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   $("#period-box-value").text(retrievedGameData.period);
   localStorage.clear();
 })
@@ -514,7 +559,8 @@ $("#setting-button-apply").click(function() {
   retrievedGameData.foulSyncShotClock = $("#SettingCheckbox2").prop("checked");
   retrievedGameData.goalSyncPossession = $("#SettingCheckbox3").prop("checked");
   retrievedGameData.goalSyncShotClock = $("#SettingCheckbox4").prop("checked");
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  retrievedGameData.DoNotShowWelcomePanelAtStart = $("#DoNotShowCheckbox2").prop("checked");
+  SaveToLocal();
   setTimeout(disableClickListener,100);
 });
 
@@ -529,7 +575,7 @@ $("#reset-button").click(function() {
     retrievedGameData.periodStartTime = new Date();
   }
 
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));
+  SaveToLocal();
 })
 
 $("#reset-button2").click(function() {
@@ -557,7 +603,7 @@ $("#clearer").click(function() {
     $("#welcome-panel").removeClass("hidden");
     $("#DoNotShowCheckbox").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);
     $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);
-    localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+    SaveToLocal();  
   }
   alert("cleared");
 
@@ -597,7 +643,27 @@ $("#set-manual").click(function() {
   // console.log(fg,fg2);
   let gts = gm*60 + gs;
   retrievedGameData.periodTime = gts;
-  localStorage.setItem('gameData', JSON.stringify(retrievedGameData));  
+  SaveToLocal();  
   $("#period-time-panel").addClass("hidden");
   ShownManualEdit = false;
+})
+
+$("#team1-bonus").click(function() {
+  if (retrievedGameData.bonus1) {
+    retrievedGameData.bonus1 = false;
+  } else {
+    retrievedGameData.bonus1 = true;
+  }
+  SaveToLocal(); 
+  DisplayScoreBoardValues(); 
+})
+
+$("#team2-bonus").click(function() {
+  if (retrievedGameData.bonus2) {
+    retrievedGameData.bonus2 = false;
+  } else {
+    retrievedGameData.bonus2 = true;
+  }
+  SaveToLocal();  
+  DisplayScoreBoardValues(); 
 })

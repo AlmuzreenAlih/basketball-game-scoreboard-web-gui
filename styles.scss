@@ -48,6 +48,9 @@ $theme_color2: #111111;
 $outline_color1: white;
 $outline_color2: #C70039;
 
+$hand_z: 200;
+$panel_z: 300;
+
 html {
     font-size: 16px;
 }
@@ -128,6 +131,7 @@ html {
 }
 
 .handY {
+    z-index: $hand_z;
     position: absolute;
     animation: upAndDown 2s infinite;
     img {
@@ -136,6 +140,10 @@ html {
             height: 100px;
         }
     }
+}
+
+.panels {
+    z-index: $panel_z;
 }
 
 .hidden {visibility: hidden;}
@@ -151,6 +159,16 @@ html {
 //         }
 //     }
 // }
+
+.bonux {
+    color: white;
+}
+
+.off {
+    color: rgb(40, 30, 30);
+}
+
+
 
 body {
     background: black;
@@ -213,8 +231,6 @@ body {
             box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
             // transform: translate(-50%,-50%);
 
-            z-index: 200;
-
             padding: 5px;
             height:auto;
             padding-bottom: 30px;
@@ -266,8 +282,6 @@ body {
             padding-bottom: 10px;
             width: 75%;
             
-            z-index: 100;
-
             border: 5px solid white;
             border-radius: 8px;
             box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
@@ -331,8 +345,6 @@ body {
             padding-bottom: 10px;
             width: 75%;
             
-            z-index: 100;
-
             border: 5px solid white;
             border-radius: 8px;
             box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
@@ -382,7 +394,6 @@ body {
             padding-bottom: 15px;
             width: 75%;
             max-height: 80vh;
-            z-index: 100;
 
             border: 5px solid white;
             border-radius: 8px;
@@ -762,7 +773,6 @@ body {
                         position: relative;
                         #hand1 {
                             // background-color: white;
-                            z-index: 600;
                             top: 100%;
                             left: -53px;
                             // transform: translate(50%,0);
@@ -904,7 +914,6 @@ body {
 
                 #hand4 {
                     top: 60%;
-                    z-index: 100;
                 }
             }
 
