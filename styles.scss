@@ -43,7 +43,9 @@ $outline-size: 15px;
 $theme_color1: #071952;
 $theme_color1: linear-gradient(to left, #071952, #651919);
 
-$theme_color2: #111111;
+$theme_color2: #000000;
+$brick_color: #000000;
+$brick_pattern : url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%239C92AC' fill-opacity='0.13'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");;        
 
 $outline_color1: white;
 $outline_color2: #C70039;
@@ -90,7 +92,10 @@ html {
     
     border: 50% solid #888;
     border-radius: 50%;
-    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+
+    cursor: pointer;
+
 }
 
 #reset-button {
@@ -107,7 +112,10 @@ html {
     
     border: 50% solid #888;
     border-radius: 50%;
-    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5)
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+
+    cursor: pointer;
+
 }
 
 #reset-button2 {
@@ -125,12 +133,33 @@ html {
     50% { transform: translateY(10px); } /* Middle position */
 }
 
+@keyframes zoomInOut {
+    0%, 100% { transform: scale(1); } /* Start and end scale */
+    50% { transform: scale(1.1); } /* Middle scale */
+}
+
 @keyframes upAndDown2 {
     0%, 100% { transform: translateY(100%); } /* Start and end position */
     50% { transform: translateY(125%); } /* Middle position */
 }
 
+.buttons {
+    cursor: pointer;
+}
+
 .handY {
+    z-index: $hand_z;
+    position: absolute;
+    animation: zoomInOut 2s infinite;
+    img {
+        height: 170px;
+        @include mobile {
+            height: 100px;
+        }
+    }
+}
+
+.handY2 {
     z-index: $hand_z;
     position: absolute;
     animation: upAndDown 2s infinite;
@@ -148,18 +177,6 @@ html {
 
 .hidden {visibility: hidden;}
 
-// .handY2 {
-//     position: absolute;
-//     animation: upAndDown2 2s infinite;
-//     height: 40px;
-//     img {
-//         height: 170px;
-//         @include mobile {
-//             height: 100px;
-//         }
-//     }
-// }
-
 .bonux {
     color: white;
 }
@@ -174,8 +191,16 @@ body {
     background: black;
     height: 100vh;
     color: white;
-    padding: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 0px;
     overflow-y:hidden;
+    // background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     #panel {
         display: flex;
         flex-direction: column;
@@ -193,20 +218,51 @@ body {
         position: relative;
 
         #settings-button {
+            @include mobile {visibility: hidden;}
+            z-index: 400;
             background-color: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
 
             position: absolute;
-            top: 15px;
+            bottom: 20px;
+            right: 15px;
+            // transform: translate(-100%,0);
+
+            border: 0px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+
+            img {
+                height: 45px;
+            }
+
+            #arrowUp5 {
+                position: absolute;
+                top: 100%;
+            }
+        }
+
+        #reset-all-button {
+            @include mobile {visibility: hidden;}
+            z-index: 400;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            bottom: 20px;
             right: 15px;
             // transform: translate(-100%,0);
 
             border: none; 
             outline: none;
             img {
+                background-image: linear-gradient(to right, #11b02c, #1deb6c);;
                 height: 45px;
+                border-radius: 50%;
             }
 
             #arrowUp5 {
@@ -257,6 +313,7 @@ body {
                     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
                     padding: 3px;
                     margin: 5px;
+                    cursor: pointer;
                 }
 
                 #tuts-close {
@@ -280,9 +337,12 @@ body {
             transform: translate(-50%,-50%);
 
             height: fit-content;
-            padding-bottom: 10px;
-            width: 75%;
-            
+            padding-bottom: 15px;
+            padding-inline: 35px;
+            @include mobile {
+                padding-bottom: 15px;
+                padding-inline: 0px;
+            }
             border: 5px solid white;
             border-radius: 8px;
             box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
@@ -319,6 +379,9 @@ body {
                     border: 0px solid #888;
                     border-radius: 8px;
                     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+
+                    cursor: pointer;
+                    margin-inline:0.5rem;
                 }
     
                 button:nth-child(1) {
@@ -326,7 +389,8 @@ body {
                 }
     
                 button:nth-child(2) {
-                    background-color: #36BC20;;
+                    background-color: #00224D;
+                    color: white;
                 }
             }
         }
@@ -343,8 +407,8 @@ body {
             transform: translate(-50%,-50%);
 
             height: fit-content;
-            padding-bottom: 10px;
-            width: 75%;
+            padding-block: 10px;
+            padding-inline: 15px;
             
             border: 5px solid white;
             border-radius: 8px;
@@ -371,11 +435,13 @@ body {
                 }
 
                 button:nth-child(1) {
-                    background-color: #9e9a9b;;
+                    background-color: #9e9a9b;
+                    cursor: pointer;
                 }
     
                 button:nth-child(2) {
-                    background-color: #36BC20;;
+                    background-color: #28A745;;
+                    cursor: pointer;
                 }
             }
         }
@@ -451,7 +517,8 @@ body {
                 }
 
                 #setting-button-apply {
-                    background: #36BC20;
+                    background: #28A745;
+                    // color: white
                 }
                 
             }
@@ -459,7 +526,9 @@ body {
         }
 
         #row1 {
-            background: $theme_color1;
+            // background: $theme_color1;
+            background-color: $brick_color;
+            background-image: $brick_pattern;
             flex: 1;
 
             display: grid;
@@ -772,7 +841,7 @@ body {
                         position: relative;
                         #hand1 {
                             // background-color: white;
-                            top: 100%;
+                            top: 0%;
                             left: -53px;
                             // transform: translate(50%,0);
 
@@ -802,6 +871,10 @@ body {
 
                     width: 80%;
                     height: 100px;
+
+                    #period-time-value {
+                        cursor: pointer;
+                    }
                 }
 
                 #hand2 {
@@ -821,14 +894,16 @@ body {
                     }
 
                     #hand3 {
-                        top: 50%;
+                        top: 30%;
                     }
                 }
             }
         }  
 
         #row2 {
-            background: $theme_color1;
+            // background: $theme_color1;
+            background-color: $brick_color;
+            background-image: $brick_pattern;
             flex: 1;
 
             display: grid;
@@ -893,22 +968,33 @@ body {
                         height: 22px;
 
                     }
+                    .fouls-buttons {
+                        cursor: pointer;
+                    }
                     #fouls1-button1 {
                         position: absolute; top: 20px; right: 20px;
                         padding:3px;
+                        @include mobile {top:10px;}
                     }
                     #fouls1-button2 {
                         position: absolute; bottom: 20px; right: 20px;
                         padding:3px;
+                        @include mobile {bottom:10px;}
                     }
                     #fouls2-button1 {
                         position: absolute; top: 20px; right: 20px;
                         padding:3px;
+                        @include mobile {top:10px;}
                     }
                     #fouls2-button2 {
                         position: absolute; bottom: 20px; right: 20px;
                         padding:3px;
+                        @include mobile {bottom:10px;}
                     }     
+                }
+
+                #shot-clock-value {
+                    cursor: pointer;
                 }
 
                 #hand4 {
@@ -926,3 +1012,31 @@ body {
     }
 }
 
+#clearer-parent {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    #clearer {
+        font-size: 1.25rem;
+        margin-block: 4px;
+        padding-inline: 8px;
+        border-radius: 4px;
+    }
+
+    #blank {
+        flex-basis: 25%;
+    }
+    #clear {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 50%;
+    }
+    #copyright {
+        flex-basis: 25%;
+        text-align: right;
+    }
+}

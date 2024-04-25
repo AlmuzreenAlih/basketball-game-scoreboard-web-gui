@@ -584,12 +584,12 @@ $("#reset-button2").click(function() {
   Reset2();
 })
 
-$("#team1-button1").width($("#team1-button1").height());
-$("#team1-button2").width($("#team1-button2").height());
-$("#team1-button3").width($("#team1-button3").height());
-$("#team1-button4").width($("#team1-button4").height());
-$("#team1-button5").width($("#team1-button5").height());
-$("#team1-button6").width($("#team1-button6").height());
+// $("#team1-button1").width($("#team1-button1").height());
+// $("#team1-button2").width($("#team1-button2").height());
+// $("#team1-button3").width($("#team1-button3").height());
+// $("#team1-button4").width($("#team1-button4").height());
+// $("#team1-button5").width($("#team1-button5").height());
+// $("#team1-button6").width($("#team1-button6").height());
 
 // $("#team1-score-box").css("height",6.5 * $("#team1-button6").height());
 
@@ -607,8 +607,7 @@ $("#clearer").click(function() {
     $("#DoNotShowCheckbox2").prop("checked", retrievedGameData.DoNotShowWelcomePanelAtStart);
     SaveToLocal();  
   }
-  alert("cleared");
-
+  // alert("Clearing Successful");
 })
 
 var minutesSelect = $('#minutes-edit');
